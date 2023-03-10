@@ -1,0 +1,8 @@
+﻿**/.idea
+**/.vs
+**/.vscode
+**/bin
+**/obj
+**/Migrations
+**/Logs
+**/wwwroot
