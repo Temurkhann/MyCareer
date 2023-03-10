@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace MyCarrier.Domain.Entities.Users
 {
-    public class UserLanguage : Auditable
+    public class UserHobby : Auditable
     {
-        public int LanguageId { get; set; }
         public int UserId { get; set; }
+        public int HobbyId { get; set; }
+        public string OtherHobby { get; set; }
     }
 }
