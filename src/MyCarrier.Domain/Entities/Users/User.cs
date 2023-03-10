@@ -1,11 +1,11 @@
-﻿using MyCarier.Domain.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyCarrier.Domain.Commons;
 
-namespace MyCarier.Domain.Entities.Users
+namespace MyCarrier.Domain.Entities.Users
 {
     public class User : Auditable
     {
