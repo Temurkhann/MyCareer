@@ -9,5 +9,6 @@ namespace MyCarrier.Domain.Entities.Regions
 {
     public class Region : Auditable
     {
+        public string Name { get; set; }
     }
 }

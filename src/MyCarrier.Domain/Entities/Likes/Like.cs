@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCarrier.Domain.Entities.Positions
+namespace MyCarrier.Domain.Entities.Likes
 {
-    public class Position : Auditable
+    public class Like : Auditable
     {
+        public int TalentId { get; set; }
+        public int UserId { get; set; }
     }
 }

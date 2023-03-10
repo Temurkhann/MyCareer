@@ -9,5 +9,8 @@ namespace MyCarrier.Domain.Entities.Contracts
 {
     public class Contract : Auditable
     {
+        public int FreelancerId { get; set; }
+        public int CompanyWorkerId { get; set; }
+        public string JobDetail { get; set; }
     }
 }

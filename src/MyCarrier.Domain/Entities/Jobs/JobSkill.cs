@@ -9,5 +9,7 @@ namespace MyCarrier.Domain.Entities.Jobs
 {
     public class JobSkill : Auditable
     {
+        public int JobId { get; set; }
+        public int SkillId { get; set; }
     }
 }
