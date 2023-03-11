@@ -9,5 +9,8 @@ namespace MyCarrier.Domain.Entities.Chats
 {
     public class Chat : Auditable
     {
+        public int FreelancerId { get; set; }
+        public int CompanyId { get; set; }
+        public int MessageId { get; set; }
     }
 }
