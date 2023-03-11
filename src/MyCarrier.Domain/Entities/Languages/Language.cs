@@ -1,4 +1,5 @@
 ﻿using MyCarrier.Domain.Commons;
+using MyCarrier.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace MyCarrier.Domain.Entities.Languages
     {
         public string Name { get; set; }
         public int UserId { get; set; }
-        public 
+        public Level Level { get; set; }
     }
 }
