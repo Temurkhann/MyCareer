@@ -16,7 +16,7 @@ namespace MyCarrier.Domain.Entities.Contracts
         public string INPS { get; set; }
         public string MFO { get; set; }
         public string BankName { get; set; }
-        public string TransitAccaunt { get; set; }
+        public string TransitAccount { get; set; }
         public string CardNumber { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyCarrier.Domain.Entities.Users;
 
 namespace MyCarrier.Domain.Entities.Educations
 {
@@ -17,5 +18,6 @@ namespace MyCarrier.Domain.Entities.Educations
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public int UserId { get; set; }
+        public User User { get; set; }
     }
 }
