@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyCarrier.Service.DTOs.Freelancers
 {
-    public class Freelancers
+    public class FreelancerForCreationDTO
     {
         [Required]
         public string FirstName { get; set; }
