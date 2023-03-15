@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IJobs
 {
     public interface IJobSkillService
     {
-        IQueryable<JobSkill> GetAll(PaginationParams @params, Expression<Func<JobSkill, bool>> expression = null);
+        ValueTask<IQueryable<JobSkill>> GetAll(PaginationParams @params, Expression<Func<JobSkill, bool>> expression = null);
         ValueTask<JobSkill> GetAsync(Expression<Func<JobSkill, bool>> expression);
         ValueTask<JobSkill> CreateAsync(JobSkillForCreationDTO jobForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        JobSkill Update(int Id, JobSkillForCreationDTO jobSkillForCreation);
+        ValueTask<JobSkill> Update(int Id, JobSkillForCreationDTO jobSkillForCreation);
     }
 }

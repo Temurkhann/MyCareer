@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IHobbies
 {
     public interface IHobbyService
     {
-        IQueryable<Hobby> GetAll(PaginationParams @params, Expression<Func<Hobby, bool>> expression = null);
+        ValueTask<IQueryable<Hobby>> GetAll(PaginationParams @params, Expression<Func<Hobby, bool>> expression = null);
         ValueTask<Hobby> GetAsync(Expression<Func<Hobby, bool>> expression);
         ValueTask<Hobby> CreateAsync(HobbyForCreationDTO hobbyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        Hobby Update(int Id, HobbyForCreationDTO hobbyForCreation);
+        ValueTask<Hobby> Update(int Id, HobbyForCreationDTO hobbyForCreation);
     }
 }

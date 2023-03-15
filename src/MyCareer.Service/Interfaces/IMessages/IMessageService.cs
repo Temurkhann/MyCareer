@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IMessages
 {
     public interface IMessageService
     {
-        IQueryable<Message> GetAll(PaginationParams @params, Expression<Func<Message, bool>> expression = null);
+       ValueTask<IQueryable<Message>> GetAll(PaginationParams @params, Expression<Func<Message, bool>> expression = null);
         ValueTask<Message> GetAsync(Expression<Func<Message, bool>> expression);
         ValueTask<Message> CreateAsync(MessageForCreationDTO messageForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        Message Update(int Id, MessageForCreationDTO messageForCreation);
+        ValueTask<Message> Update(int Id, MessageForCreationDTO messageForCreation);
     }
 }

@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IUsers
 {
     public interface IUserSkillService
     {
-        IQueryable<UserSkill> GetAll(PaginationParams @params, Expression<Func<UserSkill, bool>> expression = null);
+        ValueTask<IQueryable<UserSkill>> GetAll(PaginationParams @params, Expression<Func<UserSkill, bool>> expression = null);
         ValueTask<UserSkill> GetAsync(Expression<Func<UserSkill, bool>> expression);
         ValueTask<UserSkill> CreateAsync(UserSkillForCreationDTO userSkillForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        UserSkill Update(int Id, UserSkillForCreationDTO userSkillForCreation);
+        ValueTask<UserSkill> Update(int Id, UserSkillForCreationDTO userSkillForCreation);
     }
 }

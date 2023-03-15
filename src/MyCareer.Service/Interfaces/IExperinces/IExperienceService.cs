@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IExperinces
 {
     public interface IExperienceService
     {
-        IQueryable<Experience> GetAll(PaginationParams @params, Expression<Func<Experience, bool>> expression = null);
+        ValueTask<IQueryable<Experience>> GetAll(PaginationParams @params, Expression<Func<Experience, bool>> expression = null);
         ValueTask<Experience> GetAsync(Expression<Func<Experience, bool>> expression);
         ValueTask<Experience> CreateAsync(ExperienceForCreationDTO experienceForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        Experience Update(int Id, ExperienceForCreationDTO experienceForCreation);
+        ValueTask<Experience> Update(int Id, ExperienceForCreationDTO experienceForCreation);
     }
 }

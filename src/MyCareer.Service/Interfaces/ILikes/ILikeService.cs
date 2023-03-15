@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.ILikes
 {
     public interface ILikeService
     {
-        IQueryable<Like> GetAll(PaginationParams @params, Expression<Func<Like, bool>> expression = null);
+        ValueTask<IQueryable<Like>> GetAll(PaginationParams @params, Expression<Func<Like, bool>> expression = null);
         ValueTask<Like> GetAsync(Expression<Func<Like, bool>> expression);
         ValueTask<Like> CreateAsync(LikeForCreationDTO likeForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        Like Update(int Id, LikeForCreationDTO likeForCreation);
+        ValueTask<Like> Update(int Id, LikeForCreationDTO likeForCreation);
     }
 }
