@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCareer.Domain\MyCareer.Domain.csproj" />
+    <ProjectReference Include="..\src\MyCarrier.Domain\MyCarrier.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
