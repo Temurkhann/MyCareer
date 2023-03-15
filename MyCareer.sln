@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{410F250C-AB94-452D-AC5F-24B364E55C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCareer.Domain", "src\MyCareer.Domain\MyCareer.Domain.csproj", "{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCareer.Data", "src\MyCareer.Data\MyCareer.Data.csproj", "{69984E4F-7219-4DCD-9FDE-DC255E57C169}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69984E4F-7219-4DCD-9FDE-DC255E57C169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69984E4F-7219-4DCD-9FDE-DC255E57C169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69984E4F-7219-4DCD-9FDE-DC255E57C169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69984E4F-7219-4DCD-9FDE-DC255E57C169}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E5BE90D-18E7-479C-97D0-DD79A63F9B5F} = {410F250C-AB94-452D-AC5F-24B364E55C2F}
+		{69984E4F-7219-4DCD-9FDE-DC255E57C169} = {410F250C-AB94-452D-AC5F-24B364E55C2F}
+	EndGlobalSection
+EndGlobal
