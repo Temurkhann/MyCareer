@@ -10,10 +10,10 @@ namespace MyCareer.Service.Interfaces.IFreelancers
 {
     public interface IFreelancerService
     {
-        IQueryable<Freelancer> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null);
+        ValueTask<IQueryable<Freelancer>> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null);
         ValueTask<Freelancer> GetAsync(Expression<Func<Freelancer, bool>> expression);
         ValueTask<Freelancer> CreateAsync(FreelancerForCreationDTO freelancerForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        Freelancer Update(int Id, FreelancerForCreationDTO freelancerForCreation);
+        ValueTask<Freelancer> Update(int Id, FreelancerForCreationDTO freelancerForCreation);
     }
 }
