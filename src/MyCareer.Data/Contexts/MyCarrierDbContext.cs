@@ -21,7 +21,7 @@ using MyCarrier.Domain.Entities.Skills;
 namespace MyCareer.Data.Contexts;
 public class MyCarrierDbContext : DbContext
 {
-    public MyCarrierDbContext(DbContextOptionsBuilder<MyCarrierDbContext> options)
+    public MyCarrierDbContext(DbContextOptions<MyCarrierDbContext> options) : base(options)
     {
     }
 
@@ -43,7 +43,7 @@ public class MyCarrierDbContext : DbContext
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Like> Likes { get; set; }
     public DbSet<JobSkill> JobSkills { get; set; }
-    public DbSet<CompanyInformation> CompanyInformations { get; set; }
+    public DbSet<CompanyInformation> CompanyInformation { get; set; }
     public DbSet<Language> Languages { get; set; }
     public DbSet<Education> Educations { get; set; }
     public DbSet<ContractSkill> ContractSkills { get; set; }
@@ -53,4 +53,15 @@ public class MyCarrierDbContext : DbContext
     public DbSet<PerformerDetails> PerformerDetails { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Message> Messages { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+    
+        modelBuilder.Entity<Freelancer>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+    }
 }
