@@ -8,7 +8,7 @@ using MyCareer.Service.DTOs.Users;
 
 namespace MyCareer.Service.Interfaces.IUsers
 {
-    internal interface IUserHobbyService
+    public interface IUserHobbyService
     {
         ValueTask<IQueryable<UserHobby>> GetAll(PaginationParams @params, Expression<Func<UserHobby, bool>> expression = null);
         ValueTask<UserHobby> GetAsync(Expression<Func<UserHobby, bool>> expression);
