@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Talents
 {
     public interface ITalentService
     {
-        ValueTask<IQueryable<Talent>> GetAll(PaginationParams @params, Expression<Func<Talent, bool>> expression = null);
+        ValueTask<IEnumerable<Talent>> GetAll(PaginationParams @params, Expression<Func<Talent, bool>> expression = null);
         ValueTask<Talent> GetAsync(Expression<Func<Talent, bool>> expression);
         ValueTask<Talent> CreateAsync(TalentForCreationDTO talentForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

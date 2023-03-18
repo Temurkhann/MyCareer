@@ -15,13 +15,13 @@ using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
-using MyCarrier.Domain.Entities.Jobs;
-using MyCarrier.Domain.Entities.Skills;
+using MyCareer.Domain.Entities.Jobs;
+using MyCareer.Domain.Entities.Skills;
 
 namespace MyCareer.Data.Contexts;
-public class MyCarrierDbContext : DbContext
+public class MyCareerDbContext : DbContext
 {
-    public MyCarrierDbContext(DbContextOptions<MyCarrierDbContext> options) : base(options)
+    public MyCareerDbContext(DbContextOptions<MyCareerDbContext> options) : base(options)
     {
     }
 
@@ -63,5 +63,27 @@ public class MyCarrierDbContext : DbContext
         modelBuilder.Entity<Freelancer>()
             .HasIndex(u => u.Email)
             .IsUnique();
+        
+        modelBuilder.Entity<Freelancer>()
+            .HasOne(u => u.User)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Company>()
+            .HasOne(u => u.Contact)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Company>()
+            .HasOne(u => u.Contact)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        modelBuilder.Entity<Freelancer>()
+            .HasOne(u => u.Address)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+
     }
 }

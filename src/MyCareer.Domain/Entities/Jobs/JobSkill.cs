@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Jobs;
 using MyCareer.Domain.Entities.Skills;
-using MyCarrier.Domain.Entities.Skills;
+using MyCareer.Domain.Entities.Skills;
 
-namespace MyCarrier.Domain.Entities.Jobs
+namespace MyCareer.Domain.Entities.Jobs
 {
     public class JobSkill : Auditable
     {

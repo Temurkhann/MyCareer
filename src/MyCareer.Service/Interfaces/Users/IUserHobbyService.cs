@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Users
 {
     public interface IUserHobbyService
     {
-        ValueTask<IQueryable<UserHobby>> GetAll(PaginationParams @params, Expression<Func<UserHobby, bool>> expression = null);
+        ValueTask<IEnumerable<UserHobby>> GetAll(PaginationParams @params, Expression<Func<UserHobby, bool>> expression = null);
         ValueTask<UserHobby> GetAsync(Expression<Func<UserHobby, bool>> expression);
         ValueTask<UserHobby> CreateAsync(UserHobbyForCreationDTO userHobbyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

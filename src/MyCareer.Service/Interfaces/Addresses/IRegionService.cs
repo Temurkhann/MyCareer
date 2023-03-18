@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Addresses
 {
     public interface IRegionService
     {
-        ValueTask<IQueryable<Region>> GetAll(PaginationParams @params, Expression<Func<Region, bool>> expression = null);
+        ValueTask<IEnumerable<Region>> GetAll(PaginationParams @params, Expression<Func<Region, bool>> expression = null);
         ValueTask<Region> GetAsync(Expression<Func<Region, bool>> expression);
         ValueTask<Region> CreateAsync(RegionForCreationDTO regionForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

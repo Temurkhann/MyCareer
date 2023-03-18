@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Companies
 {
     public interface ICompanyService
     {
-        ValueTask<IQueryable<Company>> GetAll(PaginationParams @params, Expression<Func<Company, bool>> expression = null);
+        ValueTask<IEnumerable<Company>> GetAll(PaginationParams @params, Expression<Func<Company, bool>> expression = null);
         ValueTask<Company> GetAsync(Expression<Func<Company, bool>> expression);
         ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Users
 {
     public interface IUserLanguageService
     {
-        ValueTask<IQueryable<UserLanguage>> GetAll(PaginationParams @params, Expression<Func<UserLanguage, bool>> expression = null);
+        ValueTask<IEnumerable<UserLanguage>> GetAll(PaginationParams @params, Expression<Func<UserLanguage, bool>> expression = null);
         ValueTask<UserLanguage> GetAsync(Expression<Func<UserLanguage, bool>> expression);
         ValueTask<UserLanguage> CreateAsync(UserLanguageForCreationDTO userLanguageForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

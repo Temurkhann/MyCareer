@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace MyCareer.Service.Interfaces.Freelancers
 {
     public interface IFreelancerService
     {
-        ValueTask<IQueryable<Freelancer>> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null);
+        ValueTask<IEnumerable<Freelancer>> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null);
         ValueTask<Freelancer> GetAsync(Expression<Func<Freelancer, bool>> expression);
         ValueTask<Freelancer> CreateAsync(FreelancerForCreationDTO freelancerForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

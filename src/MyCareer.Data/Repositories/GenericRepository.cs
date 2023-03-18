@@ -11,10 +11,10 @@ namespace MyCareer.Data.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : Auditable
 {
-    private readonly MyCarrierDbContext dbContext;
+    private readonly MyCareerDbContext dbContext;
     private readonly DbSet<T> dbSet;
 
-    public GenericRepository(DbSet<T> dbSet, MyCarrierDbContext dbContext)
+    public GenericRepository(MyCareerDbContext dbContext)
     {
         this.dbContext = dbContext;
         this.dbSet = dbContext.Set<T>();

@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Contracts
 {
     public interface IContactSkillService
     {
-        ValueTask<IQueryable<ContractSkill>> GetAll(PaginationParams @params, Expression<Func<ContractSkill, bool>> expression = null);
+        ValueTask<IEnumerable<ContractSkill>> GetAll(PaginationParams @params, Expression<Func<ContractSkill, bool>> expression = null);
         ValueTask<ContractSkill> GetAsync(Expression<Func<ContractSkill, bool>> expression);
         ValueTask<ContractSkill> CreateAsync(ContractSkillForCreationDTO contractSkillForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

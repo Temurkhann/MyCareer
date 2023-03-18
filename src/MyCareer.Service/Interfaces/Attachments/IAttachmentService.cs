@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Attachments
 {
     public interface IAttachmentService
     {
-        ValueTask<IQueryable<Attachment>> GetAll(PaginationParams @params, Expression<Func<Attachment, bool>> expression = null);
+        ValueTask<IEnumerable<Attachment>> GetAll(PaginationParams @params, Expression<Func<Attachment, bool>> expression = null);
         ValueTask<Attachment> GetAsync(Expression<Func<Attachment, bool>> expression);
         ValueTask<Attachment> CreateAsync(AttachmentForCreationDTO attachmentForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

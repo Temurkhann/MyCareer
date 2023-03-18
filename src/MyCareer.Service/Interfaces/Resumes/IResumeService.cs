@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Resumes
 {
     public interface IResumeService
     {
-        ValueTask<IQueryable<Resume>> GetAll(PaginationParams @params, Expression<Func<Resume, bool>> expression = null);
+        ValueTask<IEnumerable<Resume>> GetAll(PaginationParams @params, Expression<Func<Resume, bool>> expression = null);
         ValueTask<Resume> GetAsync(Expression<Func<Resume, bool>> expression);
         ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

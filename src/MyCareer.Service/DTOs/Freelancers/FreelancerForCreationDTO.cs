@@ -1,6 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using MyCareer.Domain.Entities.Contacts;
+using MyCareer.Domain.Entities.Users;
 using MyCareer.Domain.Enums;
+using MyCareer.Service.DTOs.Addresses;
+using MyCareer.Service.DTOs.Contacts;
+using MyCareer.Service.DTOs.Users;
 
 namespace MyCareer.Service.DTOs.Freelancers
 {
@@ -19,7 +24,7 @@ namespace MyCareer.Service.DTOs.Freelancers
         public string Email { get; set; }
 
         [Required]
-        public int AddressId { get; set; }
+        public AddressForCreationDTO Address { get; set; }
 
         [Required]
         public DateTime DateOfBirth { get; set; }
@@ -31,10 +36,10 @@ namespace MyCareer.Service.DTOs.Freelancers
         public Position Position { get; set; }
 
         [Required]
-        public int ContactId { get; set; }
+        public ContactForCreationDTO Contact { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public UserForCreationDTO User { get; set; }  
 
         [Required]
         public int ImageId { get; set; }

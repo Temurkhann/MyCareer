@@ -14,7 +14,7 @@ namespace MyCareer.Service.Interfaces.IChats
 {
     public interface IMessageService
     {
-        ValueTask<IQueryable<Message>> GetAll(PaginationParams @params, Expression<Func<Message, bool>> expression = null);
+        ValueTask<IEnumerable<Message>> GetAll(PaginationParams @params, Expression<Func<Message, bool>> expression = null);
         ValueTask<Message> GetAsync(Expression<Func<Message, bool>> expression);
         ValueTask<Message> CreateAsync(MessageForCreationDTO messageForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

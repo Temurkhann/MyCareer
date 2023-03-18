@@ -14,7 +14,7 @@ namespace MyCareer.Service.Interfaces.Contacts
 {
     public interface IContactService
     {
-        ValueTask<IQueryable<Contact>> GetAll(PaginationParams @params, Expression<Func<Contact, bool>> expression = null);
+        ValueTask<IEnumerable<Contact>> GetAll(PaginationParams @params, Expression<Func<Contact, bool>> expression = null);
         ValueTask<Contact> GetAsync(Expression<Func<Contact, bool>> expression);
         ValueTask<Contact> CreateAsync(ContactForCreationDTO contactForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

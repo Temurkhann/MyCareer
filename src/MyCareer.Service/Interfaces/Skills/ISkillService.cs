@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Skills
 {
     public interface ISkillService
     {
-        ValueTask<IQueryable<Skill>> GetAll(PaginationParams @params, Expression<Func<Skill, bool>> expression = null);
+        ValueTask<IEnumerable<Skill>> GetAll(PaginationParams @params, Expression<Func<Skill, bool>> expression = null);
         ValueTask<Skill> GetAsync(Expression<Func<Skill, bool>> expression);
         ValueTask<Skill> CreateAsync(SkillForCreationDTO skillForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

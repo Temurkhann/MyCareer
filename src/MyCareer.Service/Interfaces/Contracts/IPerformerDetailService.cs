@@ -10,7 +10,7 @@ namespace MyCareer.Service.Interfaces.Contracts
 {
     public interface IPerformerDetailService
     {
-        ValueTask<IQueryable<PerformerDetails>> GetAll(PaginationParams @params, Expression<Func<PerformerDetails, bool>> expression = null);
+        ValueTask<IEnumerable<PerformerDetails>> GetAll(PaginationParams @params, Expression<Func<PerformerDetails, bool>> expression = null);
         ValueTask<PerformerDetails> GetAsync(Expression<Func<PerformerDetails, bool>> expression);
         ValueTask<PerformerDetails> CreateAsync(PerformerDetailForCreationDTO performerDetailForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

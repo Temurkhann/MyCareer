@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -20,11 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\MyCareer.Data\MyCareer.Data.csproj" />
+      <ProjectReference Include="..\MyCareer.Service\MyCareer.Service.csproj" />
     </ItemGroup>
 
 </Project>

@@ -10,10 +10,11 @@ using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Exceptions;
 using MyCareer.Service.Extensions;
+using MyCareer.Service.Interfaces.Users;
 
-namespace MyCareer.Service.Services;
+namespace MyCareer.Service.Services.Users;
 
-public class AuthService
+public class AuthService : IAuthService
 {
     private readonly IGenericRepository<User> userRepository;
     private readonly IConfiguration configuration;
@@ -23,19 +24,19 @@ public class AuthService
         this.userRepository = userRepository;
         this.configuration = configuration;
     }
-    public async ValueTask<string> GenerateToken(string username, string text) 
+    public async ValueTask<string> GenerateToken(string email, string text)
     {
         User user = await userRepository.GetAsync(u =>
-            u.Email == username && u.Password.Equals(text.Encrypt()));
+            u.Email == email && u.Password.Equals(text.Encrypt()));
 
         if (user is null)
             throw new MyCareerException(400, "Login or Password is incorrect");
 
         var authSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(this.configuration["JWT:Key"]));
+            Encoding.UTF8.GetBytes(configuration["JWT:Key"]));
 
         var token = new JwtSecurityToken(
-            issuer: this.configuration["JWT:ValidIssuer"],
+            issuer: configuration["JWT:ValidIssuer"],
             expires: DateTime.Now.AddHours(int.Parse(configuration["JWT:Expire"])),
             claims: new List<Claim>
             {
@@ -46,7 +47,7 @@ public class AuthService
                 key: authSigningKey,
                 algorithm: SecurityAlgorithms.HmacSha256)
         );
-        
+
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }
