@@ -8,6 +8,7 @@ using MyCareer.Domain.Entities.Contracts;
 using MyCareer.Domain.Entities.Educations;
 using MyCareer.Domain.Entities.Experiences;
 using MyCareer.Domain.Entities.Hobbies;
+using MyCareer.Domain.Entities.Jobs;
 using MyCareer.Domain.Entities.Languages;
 using MyCareer.Domain.Entities.Likes;
 using MyCareer.Domain.Entities.Resumes;
@@ -34,25 +35,21 @@ using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.DTOs.Skills;
 using MyCareer.Service.DTOs.Talents;
 using MyCareer.Service.DTOs.Users;
-using MyCarrier.Domain.Entities.Jobs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCareer.Service.Mappers
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
-        { 
+        {
             // user
             CreateMap<User, UserForCreationDTO>().ReverseMap();
             CreateMap<User, UserForViewDTO>().ReverseMap();
             CreateMap<UserContact, UserContactForCreationDTO>().ReverseMap();
             CreateMap<UserHobby, UserHobbyForCreationDTO>().ReverseMap();
             CreateMap<UserLanguage, UserLanguageForCreationDTO>().ReverseMap();
+            CreateMap<Freelancer, FreelancerForCreationDTO>().ReverseMap();
+
 
             // talent
             CreateMap<Talent, TalentForCreationDTO>().ReverseMap();
@@ -62,12 +59,6 @@ namespace MyCareer.Service.Mappers
 
             // resume
             CreateMap<Resume, ResumeForCreationDTO>().ReverseMap();
-
-            // region
-            CreateMap<Region, RegionForCreationDTO>().ReverseMap();
-
-            // message
-            CreateMap<Message, MessageForCreationDTO>().ReverseMap();
 
             // like
             CreateMap<Like, LikeForCreationDTO>().ReverseMap();
@@ -82,17 +73,11 @@ namespace MyCareer.Service.Mappers
             // hobby
             CreateMap<Hobby, HobbyForCreationDTO>().ReverseMap();
 
-            // freelancer
-            CreateMap<Freelancer, FreelancerForCreationDTO>().ReverseMap();
-
             // experience
             CreateMap<Experience, ExperienceForCreationDTO>().ReverseMap();
 
             // education
             CreateMap<Education, EducationForCreationDTO>().ReverseMap();
-
-            // country
-            CreateMap<Country, CountryForCreationDTO>().ReverseMap();
 
             // contract
             CreateMap<Contract, ContractForCreationDTO>().ReverseMap();
@@ -108,13 +93,15 @@ namespace MyCareer.Service.Mappers
 
             //chat
             CreateMap<Chat, ChatForCreationDTO>().ReverseMap();
+            CreateMap<Message, MessageForCreationDTO>().ReverseMap();
 
             // attachment
             CreateMap<Attachment, AttachmentForCreationDTO>().ReverseMap();
 
             // address
             CreateMap<Address, AddressForCreationDTO>().ReverseMap();
+            CreateMap<Country, CountryForCreationDTO>().ReverseMap();
+            CreateMap<Region, RegionForCreationDTO>().ReverseMap();
         }
-            
     }
 }

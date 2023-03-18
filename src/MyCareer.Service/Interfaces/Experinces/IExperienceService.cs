@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
+﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Experiences;
 using MyCareer.Service.DTOs.Experiences;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MyCareer.Service.Interfaces.Experinces
 {
     public interface IExperienceService
     {
-        ValueTask<IQueryable<Experience>> GetAll(PaginationParams @params, Expression<Func<Experience, bool>> expression = null);
+        ValueTask<IEnumerable<Experience>> GetAll(PaginationParams @params, Expression<Func<Experience, bool>> expression = null);
         ValueTask<Experience> GetAsync(Expression<Func<Experience, bool>> expression);
         ValueTask<Experience> CreateAsync(ExperienceForCreationDTO experienceForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

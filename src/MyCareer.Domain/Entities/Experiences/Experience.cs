@@ -1,6 +1,6 @@
-﻿using System;
-using MyCareer.Domain.Commons;
+﻿using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Users;
+using System;
 
 namespace MyCareer.Domain.Entities.Experiences
 {
@@ -13,6 +13,6 @@ namespace MyCareer.Domain.Entities.Experiences
         public string Description { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        
+
     }
 }

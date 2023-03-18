@@ -6,22 +6,22 @@ namespace MyCareer.Service.DTOs.Companies
     {
         [Required]
         public string FirstName { get; set; }
-        
+
         [Required]
         public string LastName { get; set; }
-        
+
         [Required]
         public string PhoneNumber { get; set; }
-        
+
         [Required]
         public int ImageId { get; set; }
-        
+
         [Required]
         public int UserId { get; set; }
-        
+
         [Required]
         public int ContactId { get; set; }
-        
+
         [Required]
         public int CompanyInformationId { get; set; }
     }

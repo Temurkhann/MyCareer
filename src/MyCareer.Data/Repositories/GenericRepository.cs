@@ -1,20 +1,20 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MyCareer.Data.Contexts;
 using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Commons;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MyCareer.Data.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : Auditable
 {
-    private readonly MyCarrierDbContext dbContext;
+    private readonly MyCareerDbContext dbContext;
     private readonly DbSet<T> dbSet;
 
-    public GenericRepository(DbSet<T> dbSet, MyCarrierDbContext dbContext)
+    public GenericRepository(MyCareerDbContext dbContext)
     {
         this.dbContext = dbContext;
         this.dbSet = dbContext.Set<T>();
@@ -32,7 +32,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : Auditable
         if (!isTracking)
             query = query.AsNoTracking();
 
-        return query;      
+        return query;
     }
 
     public async ValueTask<T> GetAsync(Expression<Func<T, bool>> expression, bool isTracking = true, string[] includes = null) =>
@@ -42,7 +42,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : Auditable
         (await dbContext.AddAsync(entity)).Entity;
 
     public async ValueTask<bool> DeleteAsync(int id)
-    { 
+    {
         var entity = await GetAsync(e => e.Id == id);
 
         if (entity == null)

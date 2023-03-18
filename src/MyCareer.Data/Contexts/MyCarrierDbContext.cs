@@ -15,13 +15,11 @@ using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
-using MyCarrier.Domain.Entities.Jobs;
-using MyCarrier.Domain.Entities.Skills;
 
 namespace MyCareer.Data.Contexts;
-public class MyCarrierDbContext : DbContext
+public class MyCareerDbContext : DbContext
 {
-    public MyCarrierDbContext(DbContextOptions<MyCarrierDbContext> options) : base(options)
+    public MyCareerDbContext(DbContextOptions<MyCareerDbContext> options) : base(options)
     {
     }
 
@@ -29,7 +27,7 @@ public class MyCarrierDbContext : DbContext
     public DbSet<Freelancer> Freelancers { get; set; }
     public DbSet<Experience> Experiences { get; set; }
     public DbSet<UserLanguage> UserLanguages { get; set; }
-    public DbSet<Hobby> Hobbies { get; set;}
+    public DbSet<Hobby> Hobbies { get; set; }
     public DbSet<Resume> Resumes { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<Address> Addresses { get; set; }
@@ -49,7 +47,7 @@ public class MyCarrierDbContext : DbContext
     public DbSet<ContractSkill> ContractSkills { get; set; }
     public DbSet<Talent> Talents { get; set; }
     public DbSet<Company> Companies { get; set; }
-    public DbSet<Chat> Chats { get; set; }  
+    public DbSet<Chat> Chats { get; set; }
     public DbSet<PerformerDetails> PerformerDetails { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Message> Messages { get; set; }
@@ -59,9 +57,31 @@ public class MyCarrierDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasIndex(u => u.Email)
             .IsUnique();
-    
+
         modelBuilder.Entity<Freelancer>()
             .HasIndex(u => u.Email)
             .IsUnique();
+
+        modelBuilder.Entity<Freelancer>()
+            .HasOne(u => u.User)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Company>()
+            .HasOne(u => u.Contact)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Company>()
+            .HasOne(u => u.Contact)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Freelancer>()
+            .HasOne(u => u.Address)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
+
     }
 }

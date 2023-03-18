@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyCareer.Domain.Commons;
-using MyCareer.Domain.Entities.Jobs;
+﻿using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Skills;
-using MyCarrier.Domain.Entities.Skills;
 
-namespace MyCarrier.Domain.Entities.Jobs
+namespace MyCareer.Domain.Entities.Jobs
 {
     public class JobSkill : Auditable
     {

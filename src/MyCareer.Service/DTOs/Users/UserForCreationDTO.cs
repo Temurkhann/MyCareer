@@ -9,8 +9,5 @@ namespace MyCareer.Service.DTOs.Users
 
         [Required]
         public string Password { get; set; }
-
-        [Required]
-        public bool IsEmailConfirmed { get; set; }
     }
 }

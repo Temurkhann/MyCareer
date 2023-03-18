@@ -6,13 +6,13 @@ namespace MyCareer.Service.DTOs.Talents
     {
         [Required]
         public int UserId { get; set; }
-        
+
         [Required]
         public int SuccessJobs { get; set; }
-        
+
         [Required]
         public int CompleteJobs { get; set; }
-        
+
         [Required]
         public decimal HourIncome { get; set; }
     }

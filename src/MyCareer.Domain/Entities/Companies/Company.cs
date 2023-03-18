@@ -17,6 +17,6 @@ namespace MyCareer.Domain.Entities.Companies
         public int ContactId { get; set; }
         public Contact Contact { get; set; }
         public int CompanyInformationId { get; set; }
-        public  CompanyInformation CompanyInformation { get; set; }
+        public CompanyInformation CompanyInformation { get; set; }
     }
 }

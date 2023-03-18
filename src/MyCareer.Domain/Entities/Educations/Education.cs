@@ -1,7 +1,7 @@
-﻿using System;
-using MyCareer.Domain.Commons;
+﻿using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Domain.Enums;
+using System;
 
 namespace MyCareer.Domain.Entities.Educations
 {

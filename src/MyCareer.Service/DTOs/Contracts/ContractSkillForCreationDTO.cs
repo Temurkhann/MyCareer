@@ -6,7 +6,7 @@ namespace MyCareer.Service.DTOs.Contracts
     {
         [Required]
         public int CompanyWorkerId { get; set; }
-        
+
         [Required]
         public int RequiredSkillId { get; set; }
     }

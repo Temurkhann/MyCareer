@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
+﻿using MyCareer.Domain.Configurations;
+using MyCareer.Domain.Entities.Jobs;
+using MyCareer.Service.DTOs.Jobs;
+using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
-using MyCareer.Service.DTOs.Jobs;
-using MyCarrier.Domain.Entities.Jobs;
 
 namespace MyCareer.Service.Interfaces.Jobs
 {
     public interface IJobSkillService
     {
-        ValueTask<IQueryable<JobSkill>> GetAll(PaginationParams @params, Expression<Func<JobSkill, bool>> expression = null);
+        ValueTask<IEnumerable<JobSkill>> GetAll(PaginationParams @params, Expression<Func<JobSkill, bool>> expression = null);
         ValueTask<JobSkill> GetAsync(Expression<Func<JobSkill, bool>> expression);
         ValueTask<JobSkill> CreateAsync(JobSkillForCreationDTO jobForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);

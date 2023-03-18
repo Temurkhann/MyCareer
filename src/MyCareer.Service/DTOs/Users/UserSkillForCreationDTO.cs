@@ -6,7 +6,7 @@ namespace MyCareer.Service.DTOs.Users
     {
         [Required]
         public int UserId { get; set; }
-        
+
         [Required]
         public int SkillId { get; set; }
         public string OtherSkills { get; set; }

@@ -1,16 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
+﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Hobbies;
 using MyCareer.Service.DTOs.Hobbies;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MyCareer.Service.Interfaces.Hobbies
 {
     public interface IHobbyService
     {
-        ValueTask<IQueryable<Hobby>> GetAll(PaginationParams @params, Expression<Func<Hobby, bool>> expression = null);
+        ValueTask<IEnumerable<Hobby>> GetAll(PaginationParams @params, Expression<Func<Hobby, bool>> expression = null);
         ValueTask<Hobby> GetAsync(Expression<Func<Hobby, bool>> expression);
         ValueTask<Hobby> CreateAsync(HobbyForCreationDTO hobbyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
