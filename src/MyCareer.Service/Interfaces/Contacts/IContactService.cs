@@ -1,13 +1,9 @@
 ﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Contacts;
-using MyCareer.Domain.Entities.Educations;
 using MyCareer.Service.DTOs.Contacts;
-using MyCareer.Service.DTOs.Educations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyCareer.Service.Interfaces.Contacts

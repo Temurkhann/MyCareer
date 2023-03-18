@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace MyCareer.Service.Exceptions;
 
 public class MyCareerException : Exception

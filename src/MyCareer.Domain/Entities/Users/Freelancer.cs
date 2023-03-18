@@ -1,9 +1,9 @@
-﻿using System;
-using MyCareer.Domain.Commons;
+﻿using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Contacts;
 using MyCareer.Domain.Enums;
+using System;
 
 namespace MyCareer.Domain.Entities.Users
 {

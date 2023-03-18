@@ -8,6 +8,6 @@ namespace MyCareer.Domain.Entities.Languages
         public int LanguageId { get; set; }
         public Language Language { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; } 
+        public User User { get; set; }
     }
 }

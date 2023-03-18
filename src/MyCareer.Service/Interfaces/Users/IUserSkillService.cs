@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using MyCareer.Domain.Configurations;
+using MyCareer.Domain.Entities.Skills;
+using MyCareer.Service.DTOs.Users;
+using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
-using MyCareer.Service.DTOs.Users;
-using MyCareer.Domain.Entities.Skills;
 
 namespace MyCareer.Service.Interfaces.IUsers
 {

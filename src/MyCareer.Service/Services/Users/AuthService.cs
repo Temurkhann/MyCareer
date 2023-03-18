@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Exceptions;
 using MyCareer.Service.Extensions;
 using MyCareer.Service.Interfaces.Users;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MyCareer.Service.Services.Users;
 

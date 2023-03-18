@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using MyCareer.Domain.Enums;
+﻿using MyCareer.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Jobs
 {
@@ -7,10 +7,10 @@ namespace MyCareer.Service.DTOs.Jobs
     {
         [Required]
         public string Name { get; set; }
-        
+
         [Required]
         public string Description { get; set; }
-        
+
         [Required]
         public string CompanyName { get; set; }
         public RequiredLevel RequiredLevel { get; set; }

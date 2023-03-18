@@ -1,5 +1,4 @@
 ﻿using MyCareer.Domain.Commons;
-using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Users;
 
 namespace MyCareer.Domain.Entities.Skills;

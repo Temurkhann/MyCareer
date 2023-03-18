@@ -6,10 +6,10 @@ namespace MyCareer.Service.DTOs.Addresses
     {
         [Required]
         public int CountryId { get; set; }
-        
+
         [Required]
         public int RegionId { get; set; }
-        
+
         [Required]
         public string Street { get; set; }
     }

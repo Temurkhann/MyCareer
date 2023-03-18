@@ -2,12 +2,9 @@
 
 namespace MyCareer.Service.DTOs.Users
 {
-    public class UserForCreationDTO
+    public class UserForUpdateDTO
     {
         [Required]
         public string Email { get; set; }
-
-        [Required]
-        public string Password { get; set; }
     }
 }

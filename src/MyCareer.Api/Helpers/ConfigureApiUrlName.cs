@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace ZaminEducation.Api.Helpers
+namespace MyCareer.Api.Helpers
 {
     public class ConfigureApiUrlName : IOutboundParameterTransformer
     {

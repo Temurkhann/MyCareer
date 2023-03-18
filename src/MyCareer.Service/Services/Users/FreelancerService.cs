@@ -8,9 +8,7 @@ using MyCareer.Service.Exceptions;
 using MyCareer.Service.Interfaces.Freelancers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyCareer.Service.Services.Users
@@ -55,7 +53,7 @@ namespace MyCareer.Service.Services.Users
             var isDeleted = await freelancerRepository.DeleteAsync(id);
 
             if (!isDeleted)
-                throw new MyCareerException(404,"Freeelancer not found");
+                throw new MyCareerException(404, "Freeelancer not found");
 
             await freelancerRepository.SaveChangesAsync();
             return true;

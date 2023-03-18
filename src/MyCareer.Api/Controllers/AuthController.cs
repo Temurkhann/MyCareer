@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyCareer.Data.IRepositories;
-using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.Users;
 

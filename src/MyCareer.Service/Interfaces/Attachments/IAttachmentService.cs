@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
+﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Service.DTOs.Attachments;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace MyCareer.Service.Interfaces.Attachments
 {

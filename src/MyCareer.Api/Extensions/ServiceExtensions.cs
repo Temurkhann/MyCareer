@@ -6,7 +6,6 @@ using MyCareer.Data.Repositories;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Interfaces.Users;
 using MyCareer.Service.Services.Users;
-using System.Reflection;
 using System.Text;
 
 
@@ -18,7 +17,7 @@ namespace ZaminEducation.Api
         {
             // repositories
             services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
-            
+
             // services
             services.AddScoped<IAuthService, AuthService>();
         }

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using MyCareer.Domain.Enums;
+﻿using MyCareer.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Languages
 {

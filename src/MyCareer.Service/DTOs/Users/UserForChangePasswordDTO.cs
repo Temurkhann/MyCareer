@@ -2,12 +2,12 @@
 
 namespace MyCareer.Service.DTOs.Users
 {
-    public class UserForCreationDTO
+    public class UserForChangePasswordDTO
     {
         [Required]
-        public string Email { get; set; }
+        public string OldPassword { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string NewPassword { get; set; }
     }
 }

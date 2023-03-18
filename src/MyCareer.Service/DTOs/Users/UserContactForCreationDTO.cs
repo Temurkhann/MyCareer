@@ -6,13 +6,13 @@ namespace MyCareer.Service.DTOs.Users
     {
         [Required]
         public string Name { get; set; }
-        
+
         [Required]
         public string Email { get; set; }
-        
+
         [Required]
         public string MessageText { get; set; }
-        
+
         [Required]
         public string PhoneNumber { get; set; }
     }

@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyCareer.Api.Middlewares;
 using MyCareer.Data.Contexts;
-using MyCareer.Service.Exceptions;
 using MyCareer.Service.Helpers;
 using MyCareer.Service.Mappers;
 using Newtonsoft.Json;

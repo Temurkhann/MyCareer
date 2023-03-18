@@ -3,7 +3,7 @@
     public enum Degree
     {
         Bachelor,
-        Master, 
+        Master,
         Doctorol
     }
 }

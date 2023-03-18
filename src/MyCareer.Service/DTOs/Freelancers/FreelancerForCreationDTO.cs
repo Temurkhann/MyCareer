@@ -1,11 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using MyCareer.Domain.Entities.Contacts;
-using MyCareer.Domain.Entities.Users;
-using MyCareer.Domain.Enums;
+﻿using MyCareer.Domain.Enums;
 using MyCareer.Service.DTOs.Addresses;
 using MyCareer.Service.DTOs.Contacts;
 using MyCareer.Service.DTOs.Users;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Freelancers
 {
@@ -39,7 +37,7 @@ namespace MyCareer.Service.DTOs.Freelancers
         public ContactForCreationDTO Contact { get; set; }
 
         [Required]
-        public UserForCreationDTO User { get; set; }  
+        public UserForCreationDTO User { get; set; }
 
         [Required]
         public int ImageId { get; set; }

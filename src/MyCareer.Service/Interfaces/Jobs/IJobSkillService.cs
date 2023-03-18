@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using MyCareer.Domain.Configurations;
+using MyCareer.Domain.Entities.Jobs;
+using MyCareer.Service.DTOs.Jobs;
+using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using MyCareer.Domain.Configurations;
-using MyCareer.Service.DTOs.Jobs;
-using MyCareer.Domain.Entities.Jobs;
 
 namespace MyCareer.Service.Interfaces.Jobs
 {

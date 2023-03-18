@@ -13,5 +13,5 @@ public static class CustomRoles
     public const string MentorRole = Mentor + "," + AdminRole + "," + SuperAdmin;
     public const string AdminRole = Admin + "," + SuperAdmin;
     public const string SuperAdminRole = SuperAdmin;
-    
+
 }
