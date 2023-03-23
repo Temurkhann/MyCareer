@@ -49,14 +49,14 @@ namespace MyCareer.Service.Services.Companies
 
         public async ValueTask<IEnumerable<Company>> GetAll(PaginationParams @params, Expression<Func<Company, bool>> expression = null)
         {
-            var companies = companyRepository.GetAll(expression: expression, isTracking: false);
+            var companies = companyRepository.GetAll(expression: expression, isTracking: false, includes: new string[] { "User" });
 
             return await companies.ToPagedList(@params).ToListAsync();
         }
 
         public async ValueTask<Company> GetAsync(Expression<Func<Company, bool>> expression)
         {
-            var company = await companyRepository.GetAsync(expression);
+            var company = await companyRepository.GetAsync(expression, false, new string[] { "CompanyInformation", "User", "CompanyInformation.Contact" });
 
             if (company is null)
                 throw new MyCareerException(404, "Company not found");

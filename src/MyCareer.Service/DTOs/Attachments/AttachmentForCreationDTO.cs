@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace MyCareer.Service.DTOs.Attachments
 {
@@ -6,5 +7,8 @@ namespace MyCareer.Service.DTOs.Attachments
     {
         [Required]
         public string Path { get; set; }
+
+        [Required]
+        public Stream Stream { get; set; }
     }
 }

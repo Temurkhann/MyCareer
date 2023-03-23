@@ -14,8 +14,6 @@ namespace MyCareer.Domain.Entities.Companies
         public Attachment Image { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public int? ContactId { get; set; }
-        public Contact Contact { get; set; }
         public int CompanyInformationId { get; set; }
         public CompanyInformation CompanyInformation { get; set; }
     }
