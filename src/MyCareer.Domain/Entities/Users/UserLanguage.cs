@@ -1,7 +1,7 @@
 ﻿using MyCareer.Domain.Commons;
-using MyCareer.Domain.Entities.Users;
+using MyCareer.Domain.Entities.Languages;
 
-namespace MyCareer.Domain.Entities.Languages
+namespace MyCareer.Domain.Entities.Users
 {
     public class UserLanguage : Auditable
     {

@@ -1,5 +1,5 @@
 ﻿using MyCareer.Domain.Configurations;
-using MyCareer.Domain.Entities.Languages;
+using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.DTOs.Users;
 using System;
 using System.Collections.Generic;

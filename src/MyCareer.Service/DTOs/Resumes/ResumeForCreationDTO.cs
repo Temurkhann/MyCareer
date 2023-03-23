@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyCareer.Service.DTOs.Attachments;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Resumes
 {
@@ -8,6 +9,6 @@ namespace MyCareer.Service.DTOs.Resumes
         public string Name { get; set; }
 
         [Required]
-        public int AttachmentId { get; set; }
+        public AttachmentForCreationDTO Attachment { get; set; }
     }
 }
