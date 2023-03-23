@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Likes
         ValueTask<Like> GetAsync(Expression<Func<Like, bool>> expression);
         ValueTask<Like> CreateAsync(LikeForCreationDTO likeForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Like> Update(int Id, LikeForCreationDTO likeForCreation);
+        ValueTask<Like> Update(int id, LikeForCreationDTO likeForCreation);
     }
 }

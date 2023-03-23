@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Attachments
         ValueTask<Attachment> GetAsync(Expression<Func<Attachment, bool>> expression);
         ValueTask<Attachment> CreateAsync(AttachmentForCreationDTO attachmentForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Attachment> Update(int Id, AttachmentForCreationDTO attachmentForCreationDTO);
+        ValueTask<Attachment> Update(int id, AttachmentForCreationDTO attachmentForCreationDTO);
     }
 }

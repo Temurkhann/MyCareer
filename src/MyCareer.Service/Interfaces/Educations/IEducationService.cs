@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Educations
         ValueTask<Education> GetAsync(Expression<Func<Education, bool>> expression);
         ValueTask<Education> CreateAsync(EducationForCreationDTO educationForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Education> Update(int Id, EducationForCreationDTO educationForCreationDTO);
+        ValueTask<Education> Update(int id, EducationForCreationDTO educationForCreationDTO);
     }
 }

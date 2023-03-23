@@ -23,6 +23,6 @@ namespace MyCareer.Service.DTOs.Companies
         public int ContactId { get; set; }
 
         [Required]
-        public int CompanyInformationId { get; set; }
+        public CompanyInformationForCreationDTO CompanyInformation { get; set; }
     }
 }

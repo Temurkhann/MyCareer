@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Users
         ValueTask<UserLanguage> GetAsync(Expression<Func<UserLanguage, bool>> expression);
         ValueTask<UserLanguage> CreateAsync(UserLanguageForCreationDTO userLanguageForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<UserLanguage> Update(int Id, UserLanguageForCreationDTO userLanguageForCreation);
+        ValueTask<UserLanguage> Update(int id, UserLanguageForCreationDTO userLanguageForCreation);
     }
 }

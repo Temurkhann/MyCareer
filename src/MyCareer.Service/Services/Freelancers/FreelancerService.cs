@@ -1,17 +1,20 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.DTOs.Freelancers;
+using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Exceptions;
 using MyCareer.Service.Interfaces.Freelancers;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace MyCareer.Service.Services.Users
+namespace MyCareer.Service.Services.Freelancers
 {
     public class FreelancerService : IFreelancerService
     {
@@ -59,19 +62,47 @@ namespace MyCareer.Service.Services.Users
             return true;
         }
 
-        public ValueTask<IEnumerable<Freelancer>> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null)
+        public async ValueTask<IEnumerable<Freelancer>> GetAll(PaginationParams @params, Expression<Func<Freelancer, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            var freelancers = freelancerRepository.GetAll(expression: expression, isTracking: false, includes: new string[] { "User" });
+
+            return await freelancers.ToPagedList(@params).ToListAsync();
         }
 
-        public ValueTask<Freelancer> GetAsync(Expression<Func<Freelancer, bool>> expression)
+        public async ValueTask<Freelancer> GetAsync(Expression<Func<Freelancer, bool>> expression)
         {
-            throw new NotImplementedException();
+            var freelancer = await freelancerRepository.GetAsync(expression, false,new string[] { "User", "Contact", "Address", "Attachment" });
+
+            if (freelancer is null)
+                throw new MyCareerException(404, "User not found");
+
+            return freelancer;
         }
 
-        public ValueTask<Freelancer> Update(int Id, FreelancerForCreationDTO freelancerForCreation)
+        public async ValueTask<Freelancer> Update(int id, FreelancerForCreationDTO freelancerForCreationDTO)
         {
-            throw new NotImplementedException();
+            var existFreelancer = await freelancerRepository.GetAsync(f => f.Id == id);
+
+            if (existFreelancer is null)
+                throw new MyCareerException(404, "No freelncer was found");
+
+            var existCountry = await countryRepository.GetAsync(
+                c => c.Id == freelancerForCreationDTO.Address.CountryId);
+
+            if (existCountry == null)
+                throw new MyCareerException(404, "No country found");
+
+            var existRegion = await regionRepository.GetAsync(
+                r => r.Id == freelancerForCreationDTO.Address.CountryId);
+
+            if (existRegion == null)
+                throw new MyCareerException(404, "No Region found");
+
+            existFreelancer.UpdatedAt = DateTime.UtcNow;
+            existFreelancer = freelancerRepository.Update(mapper.Map(freelancerForCreationDTO, existFreelancer));
+            await freelancerRepository.SaveChangesAsync();
+
+            return existFreelancer;
         }
     }
 }
