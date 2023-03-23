@@ -77,6 +77,11 @@ public class MyCareerDbContext : DbContext
             .WithOne()
             .OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.Entity<Company>()
+            .HasOne(u => u.CompanyInformation)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
+
         modelBuilder.Entity<Freelancer>()
             .HasOne(u => u.Address)
             .WithOne()

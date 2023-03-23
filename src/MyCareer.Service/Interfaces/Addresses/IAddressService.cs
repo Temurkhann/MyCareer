@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Addresses
         ValueTask<Address> GetAsync(Expression<Func<Address, bool>> expression);
         ValueTask<Address> CreateAsync(AddressForCreationDTO addressForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Address> Update(int Id, AddressForCreationDTO addressForCreationDTO);
+        ValueTask<Address> Update(int id, AddressForCreationDTO addressForCreationDTO);
     }
 }

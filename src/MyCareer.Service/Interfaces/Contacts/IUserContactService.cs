@@ -15,6 +15,6 @@ namespace MyCareer.Service.Interfaces.Contacts
         ValueTask<UserContact> GetAsync(Expression<Func<UserContact, bool>> expression);
         ValueTask<UserContact> CreateAsync(ContactForCreationDTO userContactForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<UserContact> Update(int Id, UserContactForCreationDTO userContactForCreationDTO);
+        ValueTask<UserContact> Update(int id, UserContactForCreationDTO userContactForCreationDTO);
     }
 }

@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Hobbies
         ValueTask<Hobby> GetAsync(Expression<Func<Hobby, bool>> expression);
         ValueTask<Hobby> CreateAsync(HobbyForCreationDTO hobbyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Hobby> Update(int Id, HobbyForCreationDTO hobbyForCreation);
+        ValueTask<Hobby> Update(int id, HobbyForCreationDTO hobbyForCreation);
     }
 }

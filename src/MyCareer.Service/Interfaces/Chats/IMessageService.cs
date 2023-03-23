@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.IChats
         ValueTask<Message> GetAsync(Expression<Func<Message, bool>> expression);
         ValueTask<Message> CreateAsync(MessageForCreationDTO messageForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Message> Update(int Id, MessageForCreationDTO messageForCreationDTO);
+        ValueTask<Message> Update(int id, MessageForCreationDTO messageForCreationDTO);
     }
 }
