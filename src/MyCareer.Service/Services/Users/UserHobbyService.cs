@@ -38,13 +38,13 @@ namespace MyCareer.Service.Services.Users
                 c => c.Id == userHobbyForCreationDTO.HobbyId);
 
             if (existHobby == null)
-                throw new MyCareerException(404, "No hobby found");
+                throw new MyCareerException(404, "Hobby not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == userHobbyForCreationDTO.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             var createdUserHobby = await userHobbyRepository.CreateAsync(mapper.Map<UserHobby>(userHobbyForCreationDTO));
             await userHobbyRepository.SaveChangesAsync();
@@ -85,19 +85,19 @@ namespace MyCareer.Service.Services.Users
             var existUserHobby = await userHobbyRepository.GetAsync(f => f.Id == id);
 
             if (existUserHobby is null)
-                throw new MyCareerException(404, "No UserHobby was found");
+                throw new MyCareerException(404, "UserHobby not found");
 
             var existHobby = await hobbyRepository.GetAsync(
                 c => c.Id == userHobbyForCreation.HobbyId);
 
             if (existHobby == null)
-                throw new MyCareerException(404, "No hobby found");
+                throw new MyCareerException(404, "Hobby not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == userHobbyForCreation.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             existUserHobby.UpdatedAt = DateTime.UtcNow;
             existUserHobby = userHobbyRepository.Update(mapper.Map(userHobbyForCreation, existUserHobby));

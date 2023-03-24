@@ -37,13 +37,13 @@ namespace MyCareer.Service.Services.Users
                   c => c.Id == userSkillForCreationDTO.SkillId);
 
             if (existSkill == null)
-                throw new MyCareerException(404, "No skill found");
+                throw new MyCareerException(404, "Skill not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == userSkillForCreationDTO.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             var createdUserLanguage = await userSkillRepository.CreateAsync(mapper.Map<UserSkill>(userSkillForCreationDTO));
             await userSkillRepository.SaveChangesAsync();
@@ -84,19 +84,19 @@ namespace MyCareer.Service.Services.Users
             var existUserSkill = await userSkillRepository.GetAsync(f => f.Id == id);
 
             if (existUserSkill is null)
-                throw new MyCareerException(404, "No UserSkill not found");
+                throw new MyCareerException(404, "UserSkill not found");
 
             var existSkill = await skillRepository.GetAsync(
                 c => c.Id == userSkillForCreation.SkillId);
 
             if (existSkill == null)
-                throw new MyCareerException(404, "No skill found");
+                throw new MyCareerException(404, "Skill not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == userSkillForCreation.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             existUserSkill.UpdatedAt = DateTime.UtcNow;
             existUserSkill = userSkillRepository.Update(mapper.Map(userSkillRepository, existUserSkill));

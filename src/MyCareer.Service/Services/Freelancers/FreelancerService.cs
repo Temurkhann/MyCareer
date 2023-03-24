@@ -37,13 +37,13 @@ namespace MyCareer.Service.Services.Freelancers
                 c => c.Id == freelancerForCreationDTO.Address.CountryId);
 
             if (existCountry == null)
-                throw new MyCareerException(404, "No country found");
+                throw new MyCareerException(404, "Country not found");
 
             var existRegion = await regionRepository.GetAsync(
                 r => r.Id == freelancerForCreationDTO.Address.CountryId);
 
             if (existRegion == null)
-                throw new MyCareerException(404, "No Region found");
+                throw new MyCareerException(404, "Region not found");
 
             var createdFreelanser = await freelancerRepository.CreateAsync(mapper.Map<Freelancer>(freelancerForCreationDTO));
             await freelancerRepository.SaveChangesAsync();
@@ -84,19 +84,19 @@ namespace MyCareer.Service.Services.Freelancers
             var existFreelancer = await freelancerRepository.GetAsync(f => f.Id == id);
 
             if (existFreelancer is null)
-                throw new MyCareerException(404, "No freelncer was found");
+                throw new MyCareerException(404, "Freelancer not found");
 
             var existCountry = await countryRepository.GetAsync(
                 c => c.Id == freelancerForCreationDTO.Address.CountryId);
 
             if (existCountry == null)
-                throw new MyCareerException(404, "No country found");
+                throw new MyCareerException(404, "Country not found");
 
             var existRegion = await regionRepository.GetAsync(
                 r => r.Id == freelancerForCreationDTO.Address.CountryId);
 
             if (existRegion == null)
-                throw new MyCareerException(404, "No Region found");
+                throw new MyCareerException(404, "Region not found");
 
             existFreelancer.UpdatedAt = DateTime.UtcNow;
             existFreelancer = freelancerRepository.Update(mapper.Map(freelancerForCreationDTO, existFreelancer));
