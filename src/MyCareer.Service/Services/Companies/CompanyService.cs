@@ -69,7 +69,7 @@ namespace MyCareer.Service.Services.Companies
             var existFreelancer = await companyRepository.GetAsync(f => f.Id == id);
 
             if (existFreelancer is null)
-                throw new MyCareerException(404, "No company was found");
+                throw new MyCareerException(404, "Company not found");
 
             existFreelancer.UpdatedAt = DateTime.UtcNow;
             existFreelancer = companyRepository.Update(mapper.Map(companyForCreationDTO, existFreelancer));

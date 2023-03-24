@@ -70,7 +70,7 @@ namespace MyCareer.Service.Services.Skills
             var existSkill = await skillRepository.GetAsync(f => f.Id == id);
 
             if (existSkill is null)
-                throw new MyCareerException(404, "No Talent was found");
+                throw new MyCareerException(404, "Talent not found");
 
             existSkill.UpdatedAt = DateTime.UtcNow;
             existSkill = skillRepository.Update(mapper.Map(skillForCreation, existSkill));
