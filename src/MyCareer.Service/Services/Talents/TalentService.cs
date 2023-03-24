@@ -15,15 +15,15 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCareer.Service.Services.Tallents
+namespace MyCareer.Service.Services.Talents
 {
-    public class TallentService : ITalentService
+    public class TalentService : ITalentService
     {
         private readonly IGenericRepository<User> userRepository;
         private readonly IGenericRepository<Talent> talentRepository;
         private readonly IMapper mapper;
 
-        public TallentService(IGenericRepository<User> userRepository, IGenericRepository<Talent> talentRepository, IMapper mapper)
+        public TalentService(IGenericRepository<User> userRepository, IGenericRepository<Talent> talentRepository, IMapper mapper)
         {
             this.userRepository = userRepository;
             this.talentRepository = talentRepository;
