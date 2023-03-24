@@ -24,4 +24,13 @@
       <ProjectReference Include="..\MyCareer.Service\MyCareer.Service.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers\Likes\" />
+      <Folder Include="Controllers\Languages\" />
+      <Folder Include="Controllers\NewFolder\" />
+      <Folder Include="Controllers\Resumes\" />
+      <Folder Include="Controllers\Skills\" />
+      <Folder Include="Controllers\Talents\" />
+    </ItemGroup>
+
 </Project>
