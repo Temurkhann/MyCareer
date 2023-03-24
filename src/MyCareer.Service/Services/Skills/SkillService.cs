@@ -59,7 +59,7 @@ namespace MyCareer.Service.Services.Skills
             var skill = await skillRepository.GetAsync(expression, false);
 
             if (skill is null)
-                throw new MyCareerException(404, "UserHobby not found");
+                throw new MyCareerException(404, "Skill not found");
 
             return skill;
         }
@@ -69,7 +69,7 @@ namespace MyCareer.Service.Services.Skills
             var existSkill = await skillRepository.GetAsync(f => f.Id == id);
 
             if (existSkill is null)
-                throw new MyCareerException(404, "Talent not found");
+                throw new MyCareerException(404, "Skill not found");
 
             existSkill.UpdatedAt = DateTime.UtcNow;
             existSkill = skillRepository.Update(mapper.Map(skillForCreation, existSkill));
