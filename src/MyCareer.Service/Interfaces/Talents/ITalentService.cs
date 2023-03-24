@@ -1,5 +1,6 @@
 ﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Talents;
+using MyCareer.Service.DTOs.Skills;
 using MyCareer.Service.DTOs.Talents;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace MyCareer.Service.Interfaces.Talents
         ValueTask<Talent> CreateAsync(TalentForCreationDTO talentForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
         ValueTask<Talent> Update(int id, TalentForCreationDTO talentForCreation);
+        Task<object> CreateAsync(SkillForCreationDTO skillForCreationDTO);
     }
 }

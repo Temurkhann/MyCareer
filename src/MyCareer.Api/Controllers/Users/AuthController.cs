@@ -2,7 +2,7 @@
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.Users;
 
-namespace MyCareer.Api.Controllers
+namespace MyCareer.Api.Controllers.Users
 {
     [ApiController]
     [Route("auth")]
