@@ -85,19 +85,19 @@ namespace MyCareer.Service.Services.Users
             var existUserLanguage = await userLanguageRepository.GetAsync(f => f.Id == id);
 
             if (existUserLanguage is null)
-                throw new MyCareerException(404, "No userLanguage was found");
+                throw new MyCareerException(404, "UserLanguage not found");
 
             var existlanguage = await languageRepository.GetAsync(
                 c => c.Id == userLanguageForCreation.LanguageId);
 
             if (existlanguage == null)
-                throw new MyCareerException(404, "No language found");
+                throw new MyCareerException(404, "Language not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == userLanguageForCreation.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             existUserLanguage.UpdatedAt = DateTime.UtcNow;
             existUserLanguage = userLanguageRepository.Update(mapper.Map(userLanguageRepository, existUserLanguage));

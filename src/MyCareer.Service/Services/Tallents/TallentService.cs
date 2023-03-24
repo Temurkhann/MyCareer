@@ -36,7 +36,7 @@ namespace MyCareer.Service.Services.Tallents
                 r => r.Id == talentForCreationDTO.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             var createdUserHobby = await talentRepository.CreateAsync(mapper.Map<Talent>(talentForCreationDTO));
             await talentRepository.SaveChangesAsync();
@@ -77,13 +77,13 @@ namespace MyCareer.Service.Services.Tallents
             var existTalent = await talentRepository.GetAsync(f => f.Id == id);
 
             if (existTalent is null)
-                throw new MyCareerException(404, "No Talent was found");
+                throw new MyCareerException(404, "Talent not found");
 
             var existUser = await userRepository.GetAsync(
                 r => r.Id == talentForCreation.UserId);
 
             if (existUser == null)
-                throw new MyCareerException(404, "No user found");
+                throw new MyCareerException(404, "User not found");
 
             existTalent.UpdatedAt = DateTime.UtcNow;
             existTalent = talentRepository.Update(mapper.Map(talentForCreation, existTalent));
