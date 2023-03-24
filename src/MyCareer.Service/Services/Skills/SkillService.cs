@@ -52,7 +52,6 @@ namespace MyCareer.Service.Services.Skills
             var skills = skillRepository.GetAll(expression: expression, isTracking: false, includes: new string[] { "User" });
 
             return await skills.ToPagedList(@params).ToListAsync();
-
         }
 
         public async ValueTask<Skill> GetAsync(Expression<Func<Skill, bool>> expression)
