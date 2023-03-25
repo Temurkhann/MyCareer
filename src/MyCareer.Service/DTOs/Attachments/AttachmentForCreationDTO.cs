@@ -8,6 +8,8 @@ namespace MyCareer.Service.DTOs.Attachments
         [Required]
         public string Path { get; set; }
 
+        public string Name { get; set; }
+
         [Required]
         public Stream Stream { get; set; }
     }
