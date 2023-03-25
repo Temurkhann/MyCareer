@@ -35,7 +35,6 @@ public class MyCareerDbContext : DbContext
     public DbSet<UserSkill> UserSkills { get; set; }
     public DbSet<Region> Regions { get; set; }
     public DbSet<Skill> Skills { get; set; }
-    public DbSet<UserContact> UserContacts { get; set; }
     public DbSet<UserHobby> UserHobbies { get; set; }
     public DbSet<Job> Jobs { get; set; }
     public DbSet<Contact> Contacts { get; set; }
@@ -64,16 +63,6 @@ public class MyCareerDbContext : DbContext
 
         modelBuilder.Entity<Freelancer>()
             .HasOne(u => u.User)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<Company>()
-            .HasOne(u => u.Contact)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<Company>()
-            .HasOne(u => u.Contact)
             .WithOne()
             .OnDelete(DeleteBehavior.Cascade);
 

@@ -50,7 +50,7 @@ namespace MyCareer.Service.Services.Jobs
             if (existJob == null)
                 throw new MyCareerException(404, "User not found");
 
-            var createdUserLanguage = await jobSkillRepository.CreateAsync(mapper.Map<UserSkill>(userSkillForCreationDTO));
+            var createdUserLanguage = await jobSkillRepository.CreateAsync(mapper.Map<JobSkill>(jobForCreationDTO));
             await jobSkillRepository.SaveChangesAsync();
 
             return createdUserLanguage;
