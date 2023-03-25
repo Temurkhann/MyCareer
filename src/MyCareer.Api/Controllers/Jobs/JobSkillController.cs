@@ -31,7 +31,7 @@ namespace MyCareer.Api.Controllers.Jobs
         /// <param name="id"></param>
         /// <param name="jobSkillForCreationDTO"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, JobSkillForCreationDTO jobSkillForCreationDTO)
             => Ok(await jobSkillService.Update(id, jobSkillForCreationDTO));
 
@@ -41,7 +41,7 @@ namespace MyCareer.Api.Controllers.Jobs
         /// <param name="params"></param>
         /// <returns></returns>
         [HttpGet]
-        public async ValueTask<IActionResult> GetAll([FromQuery] PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await jobSkillService.GetAll(@params));
 
         /// <summary>

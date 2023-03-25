@@ -41,7 +41,7 @@ namespace MyCareer.Api.Controllers.Experiences
         /// <param name="params"></param>
         /// <returns></returns>
         [HttpGet]
-        public async ValueTask<IActionResult> GetAll([FromQuery] PaginationParams @params)
+        public async ValueTask<IActionResult> GetAllAsync([FromQuery] PaginationParams @params)
             => Ok(await experienceService.GetAll(@params));
 
         /// <summary>
