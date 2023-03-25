@@ -14,6 +14,7 @@ namespace MyCareer.Api.Middlewares
 
         public async Task InvokeAsync(HttpContext context)
         {
+
             try
             {
                 await next.Invoke(context);

@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyCareer.Data.IRepositories;
 using MyCareer.Data.Repositories;
+using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Companies;
 using MyCareer.Domain.Entities.Experiences;
 using MyCareer.Domain.Entities.Hobbies;
@@ -61,6 +62,9 @@ namespace ZaminEducation.Api
             services.AddScoped<IGenericRepository<Job>, GenericRepository<Job>>();
             services.AddScoped<IGenericRepository<JobSkill>, GenericRepository<JobSkill>>();
             services.AddScoped<IGenericRepository<Experience>, GenericRepository<Experience>>();
+            services.AddScoped<IGenericRepository<Region>, GenericRepository<Region>>();
+            services.AddScoped<IGenericRepository<Country>, GenericRepository<Country>>();
+            services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
