@@ -4,6 +4,9 @@ using Microsoft.OpenApi.Models;
 using MyCareer.Data.IRepositories;
 using MyCareer.Data.Repositories;
 using MyCareer.Domain.Entities.Companies;
+using MyCareer.Domain.Entities.Experiences;
+using MyCareer.Domain.Entities.Hobbies;
+using MyCareer.Domain.Entities.Jobs;
 using MyCareer.Domain.Entities.Languages;
 using MyCareer.Domain.Entities.Likes;
 using MyCareer.Domain.Entities.Resumes;
@@ -11,8 +14,11 @@ using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Interfaces.Companies;
+using MyCareer.Service.Interfaces.Experiences;
 using MyCareer.Service.Interfaces.Freelancers;
+using MyCareer.Service.Interfaces.Hobbies;
 using MyCareer.Service.Interfaces.IUsers;
+using MyCareer.Service.Interfaces.Jobs;
 using MyCareer.Service.Interfaces.Languages;
 using MyCareer.Service.Interfaces.Likes;
 using MyCareer.Service.Interfaces.Resumes;
@@ -20,7 +26,10 @@ using MyCareer.Service.Interfaces.Skills;
 using MyCareer.Service.Interfaces.Talents;
 using MyCareer.Service.Interfaces.Users;
 using MyCareer.Service.Services.Companies;
+using MyCareer.Service.Services.Experiences;
 using MyCareer.Service.Services.Freelancers;
+using MyCareer.Service.Services.Hobbies;
+using MyCareer.Service.Services.Jobs;
 using MyCareer.Service.Services.Languages;
 using MyCareer.Service.Services.Likes;
 using MyCareer.Service.Services.Resumes;
@@ -48,6 +57,10 @@ namespace ZaminEducation.Api
             services.AddScoped<IGenericRepository<Language>, GenericRepository<Language>>();
             services.AddScoped<IGenericRepository<Freelancer>, GenericRepository<Freelancer>>();
             services.AddScoped<IGenericRepository<Company>, GenericRepository<Company>>();
+            services.AddScoped<IGenericRepository<Hobby>, GenericRepository<Hobby>>();
+            services.AddScoped<IGenericRepository<Job>, GenericRepository<Job>>();
+            services.AddScoped<IGenericRepository<JobSkill>, GenericRepository<JobSkill>>();
+            services.AddScoped<IGenericRepository<Experience>, GenericRepository<Experience>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
@@ -62,6 +75,10 @@ namespace ZaminEducation.Api
             services.AddScoped<ILanguageService, LanguageService>();
             services.AddScoped<IFreelancerService, FreelancerService>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IHobbyService, HobbyService>();
+            services.AddScoped<IJobService, JobService>();
+            services.AddScoped<IJobSkillService, JobSkillService>();
+            services.AddScoped<IExperienceService, ExperienceService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
