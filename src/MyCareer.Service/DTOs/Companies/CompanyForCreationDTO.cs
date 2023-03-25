@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyCareer.Service.DTOs.Attachments;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Companies
 {
@@ -12,9 +13,6 @@ namespace MyCareer.Service.DTOs.Companies
 
         [Required]
         public string PhoneNumber { get; set; }
-
-        [Required]
-        public int ImageId { get; set; }
 
         [Required]
         public int UserId { get; set; }

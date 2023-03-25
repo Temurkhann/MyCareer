@@ -58,7 +58,7 @@ namespace MyCareer.Api.Controllers.Users
         /// </summary>
         /// <param name="userForChangePasswordDTO"></param>
         /// <returns></returns>
-        [HttpPatch("Password")]
+        [HttpPatch("password")]
         public async ValueTask<IActionResult> ChangePasswordAsync(UserForChangePasswordDTO userForChangePasswordDTO)
             => Ok(await userService.ChangePasswordAsync(userForChangePasswordDTO));
 
