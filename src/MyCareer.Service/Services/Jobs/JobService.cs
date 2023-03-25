@@ -30,7 +30,7 @@ namespace MyCareer.Service.Services.Jobs
 
         public async ValueTask<Job> CreateAsync(JobForCreationDTO jobForCreationDTO)
         {
-            var createdUserHobby = await jobRepository.CreateAsync(mapper.Map<Skill>(jobForCreationDTO));
+            var createdUserHobby = await jobRepository.CreateAsync(mapper.Map<Job>(jobForCreationDTO));
             await jobRepository.SaveChangesAsync();
 
             return createdUserHobby;

@@ -45,7 +45,6 @@ namespace MyCareer.Service.Mappers
             // user
             CreateMap<User, UserForCreationDTO>().ReverseMap();
             CreateMap<User, UserForViewDTO>().ReverseMap();
-            CreateMap<UserContact, UserContactForCreationDTO>().ReverseMap();
             CreateMap<UserHobby, UserHobbyForCreationDTO>().ReverseMap();
             CreateMap<UserLanguage, UserLanguageForCreationDTO>().ReverseMap();
             CreateMap<Freelancer, FreelancerForCreationDTO>().ReverseMap();
