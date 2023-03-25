@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MyCareer.Service.Interfaces.Experinces
+namespace MyCareer.Service.Interfaces.Experiences
 {
     public interface IExperienceService
     {
