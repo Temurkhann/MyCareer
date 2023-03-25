@@ -58,7 +58,7 @@ namespace MyCareer.Api.Controllers.Users
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] int id)
             => Ok(await userLanguageService.DeleteAsync(id));
     }

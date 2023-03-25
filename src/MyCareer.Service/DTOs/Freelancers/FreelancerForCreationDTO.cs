@@ -1,5 +1,6 @@
 ﻿using MyCareer.Domain.Enums;
 using MyCareer.Service.DTOs.Addresses;
+using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Contacts;
 using MyCareer.Service.DTOs.Users;
 using System;
@@ -38,8 +39,5 @@ namespace MyCareer.Service.DTOs.Freelancers
 
         [Required]
         public UserForCreationDTO User { get; set; }
-
-        [Required]
-        public int ImageId { get; set; }
     }
 }

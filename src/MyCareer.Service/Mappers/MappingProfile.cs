@@ -29,7 +29,6 @@ using MyCareer.Service.DTOs.Hobbies;
 using MyCareer.Service.DTOs.Jobs;
 using MyCareer.Service.DTOs.Languages;
 using MyCareer.Service.DTOs.Likes;
-using MyCareer.Service.DTOs.Messages;
 using MyCareer.Service.DTOs.Regions;
 using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.DTOs.Skills;
