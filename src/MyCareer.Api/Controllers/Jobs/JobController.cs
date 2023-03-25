@@ -31,7 +31,7 @@ namespace MyCareer.Api.Controllers.Jobs
         /// <param name="id"></param>
         /// <param name="jobForCreationDTO"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, JobForCreationDTO jobForCreationDTO)
             => Ok(await jobService.Update(id, jobForCreationDTO));
 
@@ -49,7 +49,7 @@ namespace MyCareer.Api.Controllers.Jobs
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("{id}")]
         public async ValueTask<IActionResult> GetAsync([FromRoute] int id)
             => Ok(await jobService.GetAsync(u => u.Id == id));
 
@@ -58,7 +58,7 @@ namespace MyCareer.Api.Controllers.Jobs
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] int id)
             => Ok(await jobService.DeleteAsync(id));
     }
