@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using MyCareer.Data.IRepositories;
 using MyCareer.Data.Repositories;
 using MyCareer.Domain.Entities.Addresses;
+using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Companies;
 using MyCareer.Domain.Entities.Experiences;
 using MyCareer.Domain.Entities.Hobbies;
@@ -14,6 +15,8 @@ using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
+using MyCareer.Service.Attachments;
+using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Companies;
 using MyCareer.Service.Interfaces.Experiences;
 using MyCareer.Service.Interfaces.Freelancers;
@@ -65,6 +68,7 @@ namespace ZaminEducation.Api
             services.AddScoped<IGenericRepository<Region>, GenericRepository<Region>>();
             services.AddScoped<IGenericRepository<Country>, GenericRepository<Country>>();
             services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();
+            services.AddScoped<IGenericRepository<Attachment>, GenericRepository<Attachment>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
@@ -83,6 +87,7 @@ namespace ZaminEducation.Api
             services.AddScoped<IJobService, JobService>();
             services.AddScoped<IJobSkillService, JobSkillService>();
             services.AddScoped<IExperienceService, ExperienceService>();
+            services.AddScoped<IAttachmentService, AttachmentService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
