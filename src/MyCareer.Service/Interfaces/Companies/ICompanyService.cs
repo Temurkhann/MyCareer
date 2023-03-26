@@ -1,5 +1,6 @@
 ﻿using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Companies;
+using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Companies;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace MyCareer.Service.Interfaces.Companies
         ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
         ValueTask<Company> Update(int id, CompanyForCreationDTO companyForCreationDTO);
+        ValueTask<bool> CreateAttachmentAsync(int id, AttachmentForCreationDTO attachmentForCreationDTO);
     }
 }
