@@ -8,6 +8,9 @@ using MyCareer.Data.Repositories;
 using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Companies;
+using MyCareer.Domain.Entities.Contacts;
+using MyCareer.Domain.Entities.Contracts;
+using MyCareer.Domain.Entities.Educations;
 using MyCareer.Domain.Entities.Experiences;
 using MyCareer.Domain.Entities.Hobbies;
 using MyCareer.Domain.Entities.Jobs;
@@ -19,6 +22,9 @@ using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Companies;
+using MyCareer.Service.Interfaces.Contacts;
+using MyCareer.Service.Interfaces.Contracts;
+using MyCareer.Service.Interfaces.Educations;
 using MyCareer.Service.Interfaces.Experiences;
 using MyCareer.Service.Interfaces.Freelancers;
 using MyCareer.Service.Interfaces.Hobbies;
@@ -32,6 +38,9 @@ using MyCareer.Service.Interfaces.Talents;
 using MyCareer.Service.Interfaces.Users;
 using MyCareer.Service.Services.Attachments;
 using MyCareer.Service.Services.Companies;
+using MyCareer.Service.Services.Contacts;
+using MyCareer.Service.Services.Contracts;
+using MyCareer.Service.Services.Educations;
 using MyCareer.Service.Services.Experiences;
 using MyCareer.Service.Services.Freelancers;
 using MyCareer.Service.Services.Hobbies;
@@ -72,6 +81,10 @@ namespace ZaminEducation.Api
             services.AddScoped<IGenericRepository<Country>, GenericRepository<Country>>();
             services.AddScoped<IGenericRepository<Address>, GenericRepository<Address>>();
             services.AddScoped<IGenericRepository<Attachment>, GenericRepository<Attachment>>();
+            services.AddScoped<IGenericRepository<Education>, GenericRepository<Education>>();
+            services.AddScoped<IGenericRepository<Contract>, GenericRepository<Contract>>();
+            services.AddScoped<IGenericRepository<ContractSkill>, GenericRepository<ContractSkill>>();
+            services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contact>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
@@ -91,6 +104,10 @@ namespace ZaminEducation.Api
             services.AddScoped<IJobSkillService, JobSkillService>();
             services.AddScoped<IExperienceService, ExperienceService>();
             services.AddScoped<IAttachmentService, AttachmentService>();
+            services.AddScoped<IEducationService, EducationService>();
+            services.AddScoped<IContractService, ContractService>();
+            services.AddScoped<IContractSkillService, ContractSkillService>();
+            services.AddScoped<IContactService, ContactService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
