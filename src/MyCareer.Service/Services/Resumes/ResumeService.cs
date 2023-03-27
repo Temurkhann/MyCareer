@@ -1,6 +1,13 @@
-﻿using MyCareer.Domain.Configurations;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using MyCareer.Data.IRepositories;
+using MyCareer.Domain.Configurations;
+using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Service.DTOs.Resumes;
+using MyCareer.Service.Exceptions;
+using MyCareer.Service.Extensions;
+using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Resumes;
 using System;
 using System.Collections.Generic;
@@ -13,29 +20,75 @@ namespace MyCareer.Service.Services.Resumes
 {
     public class ResumeService : IResumeService
     {
-        public ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO)
+        private readonly IGenericRepository<Resume> resumeRepository;
+        private readonly IGenericRepository<Attachment> attachmentRepository;
+        private readonly IAttachmentService attachmentService;
+        private readonly IMapper mapper;
+
+        public ResumeService(IGenericRepository<Resume> resumeRepository, IAttachmentService attachmentService, IMapper mapper, IGenericRepository<Attachment> attachmentRepository)
         {
-            throw new NotImplementedException();
+            this.resumeRepository = resumeRepository;
+            this.attachmentService = attachmentService;
+            this.mapper = mapper;
+            this.attachmentRepository = attachmentRepository;
         }
 
-        public ValueTask<bool> DeleteAsync(int id)
+        public async ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO)
         {
-            throw new NotImplementedException();
+            var attachment = await attachmentService.UploadAsync(resumeForCreationDTO.FormFile.ToAttachmentOrDefault());
+
+            var createdResume = await resumeRepository.CreateAsync(mapper.Map<Resume>(resumeForCreationDTO));
+
+            createdResume.AttachmentId = attachment.Id;
+
+            await resumeRepository.SaveChangesAsync();
+
+            return createdResume;
         }
 
-        public ValueTask<IEnumerable<Resume>> GetAll(PaginationParams @params, Expression<Func<Resume, bool>> expression = null)
+        public async ValueTask<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var isDeleted = await resumeRepository.DeleteAsync(id);
+
+            if (!isDeleted)
+                throw new MyCareerException(404,"Resume not found");
+
+            await resumeRepository.SaveChangesAsync();
+            return true;
         }
 
-        public ValueTask<Resume> GetAsync(Expression<Func<Resume, bool>> expression)
+        public async ValueTask<IEnumerable<Resume>> GetAll(PaginationParams @params, Expression<Func<Resume, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            var resumes = resumeRepository.GetAll(expression, new string[] { "Attachment" } ,false);
+
+            return await resumes.ToPagedList(@params).ToListAsync();
+        }
+
+        public async ValueTask<Resume> GetAsync(Expression<Func<Resume, bool>> expression)
+        {
+            var resume = await resumeRepository.GetAsync(expression, false, new string[] { "Attachment" });
+
+            if (resume == null)
+                throw new MyCareerException(404, "Resume not found");
+
+            return resume;
         }
 
         public async ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation)
         {
-            throw new NotImplementedException();
+            var existResume = await resumeRepository.GetAsync(r => r.Id == id);
+
+            if (existResume == null)
+                throw new MyCareerException(404, "resume not found");
+
+            var attachment = await attachmentService.UpdateAsync(existResume.AttachmentId, resumeForCreation.FormFile.ToAttachmentOrDefault().Stream);
+
+            existResume.UpdatedAt = DateTime.UtcNow;
+
+            existResume = resumeRepository.Update(mapper.Map(resumeForCreation, existResume));
+            await resumeRepository.SaveChangesAsync();
+
+            return existResume;
         }
     }
 }

@@ -18,15 +18,6 @@ namespace MyCareer.Api.Controllers.Users
         }
 
         /// <summary>
-        /// Create new user
-        /// </summary>
-        /// <param name="userForCreationDTO"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public async ValueTask<IActionResult> CreateAsync(UserForCreationDTO userForCreationDTO)
-            => Ok(await userService.CreateAsync(userForCreationDTO));
-
-        /// <summary>
         /// Update user
         /// </summary>
         /// <param name="id"></param>

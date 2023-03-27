@@ -55,7 +55,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace ZaminEducation.Api
+namespace MyCareer.Api.Extensions
 {
     public static class ServiceExtensions
     {

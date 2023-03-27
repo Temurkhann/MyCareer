@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyCareer.Api.Extensions;
+using MyCareer.Service.Extensions;
 using MyCareer.Service.Interfaces.Attachments;
 using System.Threading.Tasks;
 

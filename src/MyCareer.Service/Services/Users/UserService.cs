@@ -46,6 +46,9 @@ namespace MyCareer.Service.Services.Users
 
         public async ValueTask<UserForViewDTO> CreateAsync(UserForCreationDTO userForCreationDTO)
         {
+            if (userForCreationDTO.Password != userForCreationDTO.ConfirmPassword)
+                throw new MyCareerException(404,"Passwords are different");
+
             var existEmail = await userRepository.GetAsync(u => u.Email == userForCreationDTO.Email);
 
             if (existEmail != null)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.Users;
 using System.Threading.Tasks;
@@ -10,9 +11,11 @@ namespace MyCareer.Api.Controllers.Users
     public class AuthController : ControllerBase
     {
         private readonly IAuthService authService;
-        public AuthController(IAuthService authService)
+        private readonly IUserService userService;
+        public AuthController(IAuthService authService, IUserService userService)
         {
             this.authService = authService;
+            this.userService = userService;
         }
 
         /// <summary>
@@ -29,5 +32,14 @@ namespace MyCareer.Api.Controllers.Users
                 token
             });
         }
+
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="userForCreationDTO"></param>
+        /// <returns></returns>
+        [HttpPost("register")]
+        public async ValueTask<IActionResult> CreateAsync(UserForCreationDTO userForCreationDTO)
+            => Ok(await userService.CreateAsync(userForCreationDTO));
     }
 }

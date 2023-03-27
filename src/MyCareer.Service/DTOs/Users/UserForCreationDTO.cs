@@ -9,5 +9,6 @@ namespace MyCareer.Service.DTOs.Users
 
         [Required]
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }
