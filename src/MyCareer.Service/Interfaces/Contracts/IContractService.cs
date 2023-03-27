@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Contracts
         ValueTask<Contract> GetAsync(Expression<Func<Contract, bool>> expression);
         ValueTask<Contract> CreateAsync(ContractForCreationDTO contractForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Contract> Update(int id, ContractForCreationDTO contractForCreationDTO);
+        ValueTask<Contract> UpdateAsync(int id, ContractForCreationDTO contractForCreationDTO);
     }
 }

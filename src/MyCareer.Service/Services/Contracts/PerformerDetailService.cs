@@ -33,7 +33,7 @@ namespace MyCareer.Service.Services.Contracts
             throw new NotImplementedException();
         }
 
-        public ValueTask<PerformerDetails> Update(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO)
+        public ValueTask<PerformerDetails> UpdateAsync(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO)
         {
             throw new NotImplementedException();
         }

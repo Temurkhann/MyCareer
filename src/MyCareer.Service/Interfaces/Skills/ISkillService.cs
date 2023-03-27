@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Skills
         ValueTask<Skill> GetAsync(Expression<Func<Skill, bool>> expression);
         ValueTask<Skill> CreateAsync(SkillForCreationDTO skillForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Skill> Update(int id, SkillForCreationDTO skillForCreation);
+        ValueTask<Skill> UpdateAsync(int id, SkillForCreationDTO skillForCreation);
     }
 }

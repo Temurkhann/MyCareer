@@ -81,7 +81,7 @@ namespace MyCareer.Service.Services.Contracts
             return contractSkill;
         }
 
-        public async ValueTask<ContractSkill> Update(int id, ContractSkillForCreationDTO contractSkillForCreationDTO)
+        public async ValueTask<ContractSkill> UpdateAsync(int id, ContractSkillForCreationDTO contractSkillForCreationDTO)
         {
             var existContractSkill = await contractSkillRepository.GetAsync(c => c.Id == id);
 
