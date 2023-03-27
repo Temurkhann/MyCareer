@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MyCareer.Api.Extensions;
 using MyCareer.Api.Helpers;
 using MyCareer.Api.Middlewares;
 using MyCareer.Data.Contexts;

@@ -2,7 +2,7 @@
 using MyCareer.Service.DTOs.Attachments;
 using System.IO;
 
-namespace MyCareer.Api.Extensions
+namespace MyCareer.Service.Extensions
 {
     public static class FormFileExtensions
     {
