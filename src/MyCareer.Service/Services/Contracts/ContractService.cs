@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Companies;
 using MyCareer.Domain.Entities.Contracts;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.DTOs.Contracts;
+using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Exceptions;
 using MyCareer.Service.Interfaces.Contracts;
 using System;
@@ -42,29 +44,68 @@ namespace MyCareer.Service.Services.Contracts
                 throw new MyCareerException(404,"Freelancer not found");
 
             var existCompany = await companyRepository.GetAsync(c => c.Id == contractForCreationDTO.CompanyWorkerId);
-            
+
             if (existCompany == null)
-                throw new 
+                throw new MyCareerException(404,"Company not found");
+
+            var createdContract = await contractRepository.CreateAsync(mapper.Map<Contract>(contractForCreationDTO));
+
+            await contractRepository.SaveChangesAsync();
+
+            return createdContract;
         }
 
-        public ValueTask<bool> DeleteAsync(int id)
+        public async ValueTask<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var isDeleted = await contractRepository.DeleteAsync(id);
+
+            if (!isDeleted)
+                throw new MyCareerException(404, "Contract not found");
+
+            await contractRepository.SaveChangesAsync();
+            return true;
         }
 
-        public ValueTask<IEnumerable<Contract>> GetAll(PaginationParams @params, Expression<Func<Contract, bool>> expression = null)
+        public async ValueTask<IEnumerable<Contract>> GetAll(PaginationParams @params, Expression<Func<Contract, bool>> expression = null)
         {
-            throw new NotImplementedException();
+            var contracts = contractRepository.GetAll(expression: expression, isTracking: false);
+
+            return await contracts.ToPagedList(@params).ToListAsync();
         }
 
-        public ValueTask<Contract> GetAsync(Expression<Func<Contract, bool>> expression)
+        public async ValueTask<Contract> GetAsync(Expression<Func<Contract, bool>> expression)
         {
-            throw new NotImplementedException();
+            var contract = await contractRepository.GetAsync(expression);
+
+            if (contract is null)
+                throw new MyCareerException(404, "User not found");
+
+            return contract;
         }
 
-        public ValueTask<Contract> Update(int id, ContractForCreationDTO contractForCreationDTO)
+        public async ValueTask<Contract> Update(int id, ContractForCreationDTO contractForCreationDTO)
         {
-            throw new NotImplementedException();
+            var existContract = await contractRepository.GetAsync(c => c.Id == id);
+            
+            if (existContract == null)
+                throw new MyCareerException(404, "Contract not found");
+
+            
+            var existFreelancer = await freelancerRepository.GetAsync(f => f.Id == contractForCreationDTO.PerformerId);
+
+            if (existFreelancer == null)
+                throw new MyCareerException(404, "Freelancer not found");
+
+
+            var existCompany = await companyRepository.GetAsync(c => c.Id == contractForCreationDTO.CompanyWorkerId);
+
+            if (existCompany == null)
+                throw new MyCareerException(404, "Company not found");
+
+            existContract.UpdatedAt = DateTime.UtcNow;
+            existContract = contractRepository.Update(mapper.Map(contractForCreationDTO, existContract));
+            await contractRepository.SaveChangesAsync();
+            return existContract;
         }
     }
 }
