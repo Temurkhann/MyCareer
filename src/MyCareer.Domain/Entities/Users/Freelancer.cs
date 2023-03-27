@@ -22,7 +22,7 @@ namespace MyCareer.Domain.Entities.Users
         public Contact Contact { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public int ImageId { get; set; }
+        public int? ImageId { get; set; }
         public Attachment Attachment { get; set; }
     }
 }

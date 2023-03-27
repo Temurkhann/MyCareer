@@ -3,10 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using MyCareer.Data.IRepositories;
 using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Addresses;
+using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Users;
+using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Freelancers;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Exceptions;
+using MyCareer.Service.Extensions;
+using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Freelancers;
 using System;
 using System.Collections.Generic;
@@ -21,14 +25,20 @@ namespace MyCareer.Service.Services.Freelancers
         private readonly IGenericRepository<Freelancer> freelancerRepository;
         private readonly IGenericRepository<Country> countryRepository;
         private readonly IGenericRepository<Region> regionRepository;
+        private readonly IAttachmentService attachmentService;
         private readonly IMapper mapper;
 
-        public FreelancerService(IMapper mapper, IGenericRepository<Region> regionRepository, IGenericRepository<Country> countryRepository, IGenericRepository<Freelancer> freelancerRepository)
+        public FreelancerService(IMapper mapper,
+            IGenericRepository<Region> regionRepository,
+            IGenericRepository<Country> countryRepository,
+            IGenericRepository<Freelancer> freelancerRepository,
+            IAttachmentService attachmentService)
         {
             this.mapper = mapper;
             this.regionRepository = regionRepository;
             this.countryRepository = countryRepository;
             this.freelancerRepository = freelancerRepository;
+            this.attachmentService = attachmentService;
         }
 
         public async ValueTask<Freelancer> CreateAsync(FreelancerForCreationDTO freelancerForCreationDTO)
@@ -42,13 +52,34 @@ namespace MyCareer.Service.Services.Freelancers
             var existRegion = await regionRepository.GetAsync(
                 r => r.Id == freelancerForCreationDTO.Address.CountryId);
 
+            freelancerForCreationDTO.User.Password = freelancerForCreationDTO.User.Password.Encrypt();
+
             if (existRegion == null)
                 throw new MyCareerException(404, "Region not found");
 
             var createdFreelanser = await freelancerRepository.CreateAsync(mapper.Map<Freelancer>(freelancerForCreationDTO));
+
             await freelancerRepository.SaveChangesAsync();
 
             return createdFreelanser;
+        }
+
+        public async ValueTask<bool> CreateAttachmentAsync(int id, AttachmentForCreationDTO attachmentForCreationDTO)
+        {
+            var attachment = await attachmentService.UploadAsync(attachmentForCreationDTO);
+
+            var company = await freelancerRepository.GetAsync(c => c.Id == id);
+
+            if (company == null)
+                throw new MyCareerException(404, "company not found");
+
+            company.ImageId = attachment.Id;
+
+            freelancerRepository.Update(company);
+
+            await freelancerRepository.SaveChangesAsync();
+
+            return true;
         }
 
         public async ValueTask<bool> DeleteAsync(int id)

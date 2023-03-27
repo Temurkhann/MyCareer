@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyCareer.Service.DTOs.Contacts;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Companies
 {
@@ -15,8 +16,6 @@ namespace MyCareer.Service.DTOs.Companies
 
         [Required]
         public string Description { get; set; }
-
-        [Required]
-        public int ContactId { get; set; }
+        public ContactForCreationDTO Contact { get; set; }
     }
 }

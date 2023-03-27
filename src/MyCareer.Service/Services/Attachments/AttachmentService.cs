@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCareer.Service.Attachments
+namespace MyCareer.Service.Services.Attachments
 {
     public class AttachmentService : IAttachmentService
     {
@@ -23,7 +23,7 @@ namespace MyCareer.Service.Attachments
             this.attachmentRepository = attachmentRepository;
         }
 
-        public async ValueTask<Attachment> CreateAsync(int questionId, string fileName, string filePath)
+        public async ValueTask<Attachment> CreateAsync(string filePath)
         {
 
             var file = new Attachment()
@@ -60,9 +60,9 @@ namespace MyCareer.Service.Attachments
             return existAttachment;
         }
 
-        public async ValueTask<Attachment> UploadAsync(int questionId, AttachmentForCreationDTO dto)
+        public async ValueTask<Attachment> UploadAsync(AttachmentForCreationDTO dto)
         {
-            string fileName = Guid.NewGuid().ToString("N");
+            string fileName = Guid.NewGuid().ToString("N") + "png";
             string filePath = Path.Combine(EnvironmentHelper.AttachmentPath, fileName);
 
             if (!Directory.Exists(EnvironmentHelper.AttachmentPath))
@@ -76,7 +76,7 @@ namespace MyCareer.Service.Attachments
             await fileStream.FlushAsync();
             fileStream.Close();
 
-            return await CreateAsync(questionId, fileName, Path.Combine(EnvironmentHelper.FilePath, fileName));
+            return await CreateAsync(Path.Combine(EnvironmentHelper.FilePath, fileName));
         }
     }
 }

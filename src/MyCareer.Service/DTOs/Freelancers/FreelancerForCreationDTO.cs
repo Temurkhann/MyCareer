@@ -34,7 +34,6 @@ namespace MyCareer.Service.DTOs.Freelancers
         [Required]
         public Position Position { get; set; }
 
-        [Required]
         public ContactForCreationDTO Contact { get; set; }
 
         [Required]

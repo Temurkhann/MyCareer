@@ -2,6 +2,7 @@
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Jobs;
 using MyCareer.Service.Interfaces.Jobs;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Jobs
 {

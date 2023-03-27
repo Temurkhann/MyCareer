@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MyCareer.Api.Extensions;
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Companies;
 using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.Interfaces.Companies;
 using MyCareer.Service.Services.Resumes;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Companies
 {
@@ -63,5 +66,9 @@ namespace MyCareer.Api.Controllers.Companies
         [HttpDelete("{id}")]
         public async ValueTask<IActionResult> DeleteAsync([FromRoute] int id)
             => Ok(await companyService.DeleteAsync(id));
+
+        [HttpPatch("{id}/image")]
+        public async ValueTask<IActionResult> AddAttachmnetAsync([FromRoute] int id, IFormFile formFile) =>
+            Ok(await companyService.CreateAttachmentAsync(id,formFile.ToAttachmentOrDefault()));
     }
 }

@@ -4,6 +4,7 @@ using MyCareer.Service.DTOs.Skills;
 using MyCareer.Service.DTOs.Talents;
 using MyCareer.Service.Interfaces.Skills;
 using MyCareer.Service.Interfaces.Talents;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Skills
 {

@@ -4,6 +4,7 @@ using MyCareer.Service.DTOs.Likes;
 using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.Interfaces.Likes;
 using MyCareer.Service.Services.Resumes;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Likes
 {

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MyCareer.Api.Extensions;
 using MyCareer.Service.Interfaces.Attachments;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Attachments
 {
@@ -22,8 +24,8 @@ namespace MyCareer.Api.Controllers.Attachments
         /// <param name="formFile"></param>
         /// <returns></returns>
         [HttpPost]
-        public async ValueTask<IActionResult> UploadAsync(int id, IFormFile formFile)
-            => Ok(await attachmentService.UploadAsync(id, formFile.ToAttachmentOrDefault()));
+        public async ValueTask<IActionResult> UploadAsync(IFormFile formFile)
+            => Ok(await attachmentService.UploadAsync(formFile.ToAttachmentOrDefault()));
 
         /// <summary>
         /// Update attachment

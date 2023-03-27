@@ -1,4 +1,5 @@
 ﻿using MyCareer.Service.DTOs.Attachments;
+using MyCareer.Service.DTOs.Users;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Companies
@@ -15,10 +16,7 @@ namespace MyCareer.Service.DTOs.Companies
         public string PhoneNumber { get; set; }
 
         [Required]
-        public int UserId { get; set; }
-
-        [Required]
-        public int ContactId { get; set; }
+        public UserForCreationDTO User { get; set; }
 
         [Required]
         public CompanyInformationForCreationDTO CompanyInformation { get; set; }

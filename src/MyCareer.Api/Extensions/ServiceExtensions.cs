@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyCareer.Data.IRepositories;
@@ -15,7 +17,6 @@ using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
-using MyCareer.Service.Attachments;
 using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Companies;
 using MyCareer.Service.Interfaces.Experiences;
@@ -29,6 +30,7 @@ using MyCareer.Service.Interfaces.Resumes;
 using MyCareer.Service.Interfaces.Skills;
 using MyCareer.Service.Interfaces.Talents;
 using MyCareer.Service.Interfaces.Users;
+using MyCareer.Service.Services.Attachments;
 using MyCareer.Service.Services.Companies;
 using MyCareer.Service.Services.Experiences;
 using MyCareer.Service.Services.Freelancers;
@@ -40,6 +42,7 @@ using MyCareer.Service.Services.Resumes;
 using MyCareer.Service.Services.Skills;
 using MyCareer.Service.Services.Talents;
 using MyCareer.Service.Services.Users;
+using System.Linq;
 using System.Text;
 
 

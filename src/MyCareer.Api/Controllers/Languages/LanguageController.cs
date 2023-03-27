@@ -4,6 +4,7 @@ using MyCareer.Service.DTOs.Languages;
 using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.Interfaces.Languages;
 using MyCareer.Service.Services.Resumes;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Languages
 {

@@ -2,6 +2,7 @@
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Talents;
 using MyCareer.Service.Interfaces.Talents;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Talents
 {
