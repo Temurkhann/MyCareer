@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Chats
         ValueTask<Chat> GetAsync(Expression<Func<Chat, bool>> expression);
         ValueTask<Chat> CreateAsync(ChatForCreationDTO chatForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Chat> Update(int id, ChatForCreationDTO chatForCreationDTO);
+        ValueTask<Chat> UpdateAsync(int id, ChatForCreationDTO chatForCreationDTO);
     }
 }

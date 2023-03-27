@@ -33,7 +33,7 @@ namespace MyCareer.Service.Services.Resumes
             throw new NotImplementedException();
         }
 
-        public ValueTask<Resume> Update(int id, ResumeForCreationDTO resumeForCreation)
+        public ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation)
         {
             throw new NotImplementedException();
         }

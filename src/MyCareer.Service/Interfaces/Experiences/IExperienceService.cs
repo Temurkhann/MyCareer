@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Experiences
         ValueTask<Experience> GetAsync(Expression<Func<Experience, bool>> expression);
         ValueTask<Experience> CreateAsync(ExperienceForCreationDTO experienceForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Experience> Update(int id, ExperienceForCreationDTO experienceForCreation);
+        ValueTask<Experience> UpdateAsync(int id, ExperienceForCreationDTO experienceForCreation);
     }
 }

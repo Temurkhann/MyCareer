@@ -63,7 +63,7 @@ namespace MyCareer.Service.Services.Contacts
             return skill;
         }
 
-        public async ValueTask<Contact> Update(int id, ContactForCreationDTO contactForCreationDTO)
+        public async ValueTask<Contact> UpdateAsync(int id, ContactForCreationDTO contactForCreationDTO)
         {
             var existSkill = await contactRepository.GetAsync(f => f.Id == id);
 

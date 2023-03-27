@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Contracts
         ValueTask<ContractSkill> GetAsync(Expression<Func<ContractSkill, bool>> expression);
         ValueTask<ContractSkill> CreateAsync(ContractSkillForCreationDTO contractSkillForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<ContractSkill> Update(int id, ContractSkillForCreationDTO contractSkillForCreationDTO);
+        ValueTask<ContractSkill> UpdateAsync(int id, ContractSkillForCreationDTO contractSkillForCreationDTO);
     }
 }

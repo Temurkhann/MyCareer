@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Freelancers
         ValueTask<Freelancer> GetAsync(Expression<Func<Freelancer, bool>> expression);
         ValueTask<Freelancer> CreateAsync(FreelancerForCreationDTO freelancerForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Freelancer> Update(int id, FreelancerForCreationDTO freelancerForCreation);
+        ValueTask<Freelancer> UpdateAsync(int id, FreelancerForCreationDTO freelancerForCreation);
     }
 }

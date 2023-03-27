@@ -15,7 +15,7 @@ namespace MyCareer.Service.Interfaces.Companies
         ValueTask<Company> GetAsync(Expression<Func<Company, bool>> expression);
         ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Company> Update(int id, CompanyForCreationDTO companyForCreationDTO);
+        ValueTask<Company> UpdateAsync(int id, CompanyForCreationDTO companyForCreationDTO);
         ValueTask<bool> CreateAttachmentAsync(int id, AttachmentForCreationDTO attachmentForCreationDTO);
     }
 }
