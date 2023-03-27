@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Resumes
         ValueTask<Resume> GetAsync(Expression<Func<Resume, bool>> expression);
         ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Resume> Update(int id, ResumeForCreationDTO resumeForCreation);
+        ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation);
     }
 }

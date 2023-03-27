@@ -1,6 +1,9 @@
-﻿using MyCareer.Domain.Configurations;
+﻿using AutoMapper;
+using MyCareer.Data.IRepositories;
+using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Service.DTOs.Resumes;
+using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Resumes;
 using System;
 using System.Collections.Generic;
@@ -13,9 +16,28 @@ namespace MyCareer.Service.Services.Resumes
 {
     public class ResumeService : IResumeService
     {
-        public ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO)
+        private readonly IGenericRepository<Resume> resumeRepository;
+        private readonly IAttachmentService attachmentService;
+        private readonly IMapper mapper;
+
+        public ResumeService(IGenericRepository<Resume> resumeRepository, IAttachmentService attachmentService, IMapper mapper)
         {
-            throw new NotImplementedException();
+            this.resumeRepository = resumeRepository;
+            this.attachmentService = attachmentService;
+            this.mapper = mapper;
+        }
+
+        public async ValueTask<Resume> CreateAsync(ResumeForCreationDTO resumeForCreationDTO)
+        {
+            var attachment = await attachmentService.UploadAsync(resumeForCreationDTO.FormFile.ToAttachmentOrDefault());
+
+            var createdResume = await resumeRepository.CreateAsync(mapper.Map<Resume>(resumeForCreationDTO));
+
+            createdResume.AttachmentId = attachment.Id;
+
+            await resumeRepository.SaveChangesAsync();
+
+            return createdResume;
         }
 
         public ValueTask<bool> DeleteAsync(int id)
@@ -33,7 +55,7 @@ namespace MyCareer.Service.Services.Resumes
             throw new NotImplementedException();
         }
 
-        public ValueTask<Resume> Update(int id, ResumeForCreationDTO resumeForCreation)
+        public ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation)
         {
             throw new NotImplementedException();
         }

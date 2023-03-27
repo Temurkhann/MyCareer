@@ -14,6 +14,6 @@ namespace MyCareer.Service.Interfaces.Contracts
         ValueTask<PerformerDetails> GetAsync(Expression<Func<PerformerDetails, bool>> expression);
         ValueTask<PerformerDetails> CreateAsync(PerformerDetailForCreationDTO performerDetailForCreationDTO);
         ValueTask<bool> DeleteAsync(int id);
-        ValueTask<PerformerDetails> Update(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO);
+        ValueTask<PerformerDetails> UpdateAsync(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO);
     }
 }

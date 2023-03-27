@@ -1,4 +1,5 @@
-﻿using MyCareer.Service.DTOs.Attachments;
+﻿using Microsoft.AspNetCore.Http;
+using MyCareer.Service.DTOs.Attachments;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Resumes
@@ -9,6 +10,6 @@ namespace MyCareer.Service.DTOs.Resumes
         public string Name { get; set; }
 
         [Required]
-        public AttachmentForCreationDTO Attachment { get; set; }
+        public IFormFile FormFile { get; set; }
     }
 }

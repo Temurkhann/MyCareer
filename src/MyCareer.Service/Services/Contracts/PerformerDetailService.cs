@@ -65,7 +65,7 @@ namespace MyCareer.Service.Services.Contracts
             return performerDetails;
         }
 
-        public async ValueTask<PerformerDetails> Update(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO)
+        public async ValueTask<PerformerDetails> UpdateAsync(int id, PerformerDetailForCreationDTO performerDetailForCreationDTO)
         {
             var existPerformerDetails = await performerDetailsRepository.GetAsync(p => p.Id == id);
 
