@@ -34,7 +34,7 @@ namespace MyCareer.Api.Controllers.Users
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, UserLanguageForCreationDTO userLanguageForCreationDTO)
-            => Ok(await userLanguageService.Update(id, userLanguageForCreationDTO));
+            => Ok(await userLanguageService.UpdateAsync(id, userLanguageForCreationDTO));
 
         /// <summary>
         /// GetAll userLanguages

@@ -36,7 +36,7 @@ namespace MyCareer.Api.Controllers.Freelancers
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, FreelancerForCreationDTO freelancerForCreationDTO)
-            => Ok(await freelancerService.Update(id, freelancerForCreationDTO));
+            => Ok(await freelancerService.UpdateAsync(id, freelancerForCreationDTO));
 
         /// <summary>
         /// GetAll freelancers

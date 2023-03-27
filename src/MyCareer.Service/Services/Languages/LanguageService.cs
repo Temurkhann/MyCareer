@@ -64,7 +64,7 @@ namespace MyCareer.Service.Services.Languages
             return skill;
         }
 
-        public async ValueTask<Language> Update(int id, LanguageForCreationDTO languageForCreation)
+        public async ValueTask<Language> UpdateAsync(int id, LanguageForCreationDTO languageForCreation)
         {
             var existSkill = await languageRepository.GetAsync(f => f.Id == id);
 

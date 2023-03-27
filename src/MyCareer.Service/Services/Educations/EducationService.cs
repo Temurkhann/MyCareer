@@ -73,7 +73,7 @@ namespace MyCareer.Service.Services.Educations
             return userHobby;
         }
 
-        public async ValueTask<Education> Update(int id, EducationForCreationDTO educationForCreationDTO)
+        public async ValueTask<Education> UpdateAsync(int id, EducationForCreationDTO educationForCreationDTO)
         {
             var existExperince = await educationRepository.GetAsync(f => f.Id == id);
 

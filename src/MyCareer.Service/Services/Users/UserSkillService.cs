@@ -79,7 +79,7 @@ namespace MyCareer.Service.Services.Users
             return userLanguage;
         }
 
-        public async ValueTask<UserSkill> Update(int id, UserSkillForCreationDTO userSkillForCreation)
+        public async ValueTask<UserSkill> UpdateAsync(int id, UserSkillForCreationDTO userSkillForCreation)
         {
             var existUserSkill = await userSkillRepository.GetAsync(f => f.Id == id);
 

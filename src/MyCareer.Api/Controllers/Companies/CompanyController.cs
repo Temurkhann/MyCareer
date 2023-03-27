@@ -38,7 +38,7 @@ namespace MyCareer.Api.Controllers.Companies
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, CompanyForCreationDTO companyForCreationDTO)
-            => Ok(await companyService.Update(id, companyForCreationDTO));
+            => Ok(await companyService.UpdateAsync(id, companyForCreationDTO));
 
         /// <summary>
         /// GetAll companies

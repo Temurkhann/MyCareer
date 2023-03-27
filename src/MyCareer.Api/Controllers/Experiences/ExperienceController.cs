@@ -34,7 +34,7 @@ namespace MyCareer.Api.Controllers.Experiences
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, ExperienceForCreationDTO experienceForCreationDTO)
-            => Ok(await experienceService.Update(id, experienceForCreationDTO));
+            => Ok(await experienceService.UpdateAsync(id, experienceForCreationDTO));
 
         /// <summary>
         /// GetAll experiences

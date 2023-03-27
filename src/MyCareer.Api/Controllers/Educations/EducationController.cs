@@ -34,7 +34,7 @@ namespace MyCareer.Api.Controllers.Educations
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, EducationForCreationDTO educationForCreationDTO)
-            => Ok(await educationService.Update(id, educationForCreationDTO));
+            => Ok(await educationService.UpdateAsync(id, educationForCreationDTO));
 
         /// <summary>
         /// GetAll educations
