@@ -25,6 +25,7 @@ namespace MyCareer.Service.Services.Freelancers
         private readonly IGenericRepository<Freelancer> freelancerRepository;
         private readonly IGenericRepository<Country> countryRepository;
         private readonly IGenericRepository<Region> regionRepository;
+        private readonly IGenericRepository<User> userRepository;
         private readonly IAttachmentService attachmentService;
         private readonly IMapper mapper;
 
@@ -32,17 +33,24 @@ namespace MyCareer.Service.Services.Freelancers
             IGenericRepository<Region> regionRepository,
             IGenericRepository<Country> countryRepository,
             IGenericRepository<Freelancer> freelancerRepository,
-            IAttachmentService attachmentService)
+            IAttachmentService attachmentService,
+            IGenericRepository<User> userRepository)
         {
             this.mapper = mapper;
             this.regionRepository = regionRepository;
             this.countryRepository = countryRepository;
             this.freelancerRepository = freelancerRepository;
             this.attachmentService = attachmentService;
+            this.userRepository = userRepository;
         }
 
         public async ValueTask<Freelancer> CreateAsync(FreelancerForCreationDTO freelancerForCreationDTO)
         {
+            var existUser = await userRepository.GetAsync(u => u.Id == freelancerForCreationDTO.UserId);
+
+            if (existUser == null)
+                throw new MyCareerException(404,"User not found");
+
             var existCountry = await countryRepository.GetAsync(
                 c => c.Id == freelancerForCreationDTO.Address.CountryId);
 
@@ -51,8 +59,6 @@ namespace MyCareer.Service.Services.Freelancers
 
             var existRegion = await regionRepository.GetAsync(
                 r => r.Id == freelancerForCreationDTO.Address.CountryId);
-
-            freelancerForCreationDTO.User.Password = freelancerForCreationDTO.User.Password.Encrypt();
 
             if (existRegion == null)
                 throw new MyCareerException(404, "Region not found");

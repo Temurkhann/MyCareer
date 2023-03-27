@@ -24,19 +24,24 @@ namespace MyCareer.Service.Services.Companies
     public class CompanyService : ICompanyService
     {
         private readonly IGenericRepository<Company> companyRepository;
+        private readonly IGenericRepository<User> userRepository;
         private readonly IAttachmentService attachmentService;
         private readonly IMapper mapper;
 
-        public CompanyService(IGenericRepository<Company> companyRepository, IMapper mapper, IAttachmentService attachmentService)
+        public CompanyService(IGenericRepository<Company> companyRepository, IMapper mapper, IAttachmentService attachmentService, IGenericRepository<User> userRepository)
         {
             this.companyRepository = companyRepository;
             this.mapper = mapper;
             this.attachmentService = attachmentService;
+            this.userRepository = userRepository;
         }
 
         public async ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO)
         {
-            companyForCreationDTO.User.Password = companyForCreationDTO.User.Password.Encrypt();
+            var existUser = await userRepository.GetAsync(u => u.Id == companyForCreationDTO.UserId);
+
+            if (existUser == null)
+                throw new MyCareerException(404,"User not found");
 
             var createdCompany = await companyRepository.CreateAsync(mapper.Map<Company>(companyForCreationDTO));
             await companyRepository.SaveChangesAsync();

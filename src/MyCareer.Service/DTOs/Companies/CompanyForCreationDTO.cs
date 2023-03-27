@@ -16,7 +16,7 @@ namespace MyCareer.Service.DTOs.Companies
         public string PhoneNumber { get; set; }
 
         [Required]
-        public UserForCreationDTO User { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         public CompanyInformationForCreationDTO CompanyInformation { get; set; }

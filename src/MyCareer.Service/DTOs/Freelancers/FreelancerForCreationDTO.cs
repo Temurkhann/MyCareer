@@ -37,6 +37,6 @@ namespace MyCareer.Service.DTOs.Freelancers
         public ContactForCreationDTO Contact { get; set; }
 
         [Required]
-        public UserForCreationDTO User { get; set; }
+        public int UserId { get; set; }
     }
 }
