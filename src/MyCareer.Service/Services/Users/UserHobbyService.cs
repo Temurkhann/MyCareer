@@ -80,7 +80,7 @@ namespace MyCareer.Service.Services.Users
             return userHobby;
         }
 
-        public async ValueTask<UserHobby> Update(int id, UserHobbyForCreationDTO userHobbyForCreation)
+        public async ValueTask<UserHobby> UpdateAsync(int id, UserHobbyForCreationDTO userHobbyForCreation)
         {
             var existUserHobby = await userHobbyRepository.GetAsync(f => f.Id == id);
 

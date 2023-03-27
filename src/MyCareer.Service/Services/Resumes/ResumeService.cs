@@ -55,7 +55,7 @@ namespace MyCareer.Service.Services.Resumes
             throw new NotImplementedException();
         }
 
-        public ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation)
+        public async ValueTask<Resume> UpdateAsync(int id, ResumeForCreationDTO resumeForCreation)
         {
             throw new NotImplementedException();
         }

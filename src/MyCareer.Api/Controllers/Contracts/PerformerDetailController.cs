@@ -35,7 +35,7 @@ namespace MyCareer.Api.Controllers.Contracts
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, PerformerDetailForCreationDTO performerDetailForCreationDTO)
-            => Ok(await performerDetailService.Update(id, performerDetailForCreationDTO));
+            => Ok(await performerDetailService.UpdateAsync(id, performerDetailForCreationDTO));
 
         /// <summary>
         /// DetAll performerDetails

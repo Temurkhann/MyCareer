@@ -35,7 +35,7 @@ namespace MyCareer.Api.Controllers.Users
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, UserSkillForCreationDTO userSkillForCreationDTO)
-            => Ok(await userSkillService.Update(id, userSkillForCreationDTO));
+            => Ok(await userSkillService.UpdateAsync(id, userSkillForCreationDTO));
 
         /// <summary>
         /// GetAll userSkills

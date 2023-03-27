@@ -34,7 +34,7 @@ namespace MyCareer.Api.Controllers.Hobbies
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, HobbyForCreationDTO hobbyForCreationDTO)
-            => Ok(await hobbyService.Update(id, hobbyForCreationDTO));
+            => Ok(await hobbyService.UpdateAsync(id, hobbyForCreationDTO));
 
         /// <summary>
         /// Get hobby

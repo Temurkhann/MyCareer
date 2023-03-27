@@ -72,7 +72,7 @@ namespace MyCareer.Service.Services.Talents
             return talent;
         }
 
-        public async ValueTask<Talent> Update(int id, TalentForCreationDTO talentForCreation)
+        public async ValueTask<Talent> UpdateAsync(int id, TalentForCreationDTO talentForCreation)
         {
             var existTalent = await talentRepository.GetAsync(f => f.Id == id);
 

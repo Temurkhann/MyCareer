@@ -64,7 +64,7 @@ namespace MyCareer.Service.Services.Jobs
             return skill;
         }
 
-        public async ValueTask<Job> Update(int id, JobForCreationDTO jobForCreation)
+        public async ValueTask<Job> UpdateAsync(int id, JobForCreationDTO jobForCreation)
         {
             var existSkill = await jobRepository.GetAsync(f => f.Id == id);
 

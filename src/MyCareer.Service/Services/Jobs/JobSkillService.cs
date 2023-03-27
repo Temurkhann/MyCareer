@@ -84,7 +84,7 @@ namespace MyCareer.Service.Services.Jobs
             return userLanguage;
         }
 
-        public async ValueTask<JobSkill> Update(int id, JobSkillForCreationDTO jobSkillForCreation)
+        public async ValueTask<JobSkill> UpdateAsync(int id, JobSkillForCreationDTO jobSkillForCreation)
         {
             var existUserSkill = await jobSkillRepository.GetAsync(f => f.Id == id);
 
