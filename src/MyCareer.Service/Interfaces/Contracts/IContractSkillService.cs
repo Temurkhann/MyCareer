@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyCareer.Service.Interfaces.Contracts
 {
-    public interface IContactSkillService
+    public interface IContractSkillService
     {
         ValueTask<IEnumerable<ContractSkill>> GetAll(PaginationParams @params, Expression<Func<ContractSkill, bool>> expression = null);
         ValueTask<ContractSkill> GetAsync(Expression<Func<ContractSkill, bool>> expression);

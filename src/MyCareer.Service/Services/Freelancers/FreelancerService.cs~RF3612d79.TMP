@@ -5,6 +5,7 @@ using MyCareer.Domain.Configurations;
 using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Attachments;
 using MyCareer.Domain.Entities.Users;
+using MyCareer.Service.Attachments;
 using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Freelancers;
 using MyCareer.Service.DTOs.Users;

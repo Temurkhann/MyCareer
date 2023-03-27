@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCareer.Service.Attachments
+namespace MyCareer.Service.Services.Attachments
 {
     public class AttachmentService : IAttachmentService
     {
@@ -62,7 +62,7 @@ namespace MyCareer.Service.Attachments
 
         public async ValueTask<Attachment> UploadAsync(AttachmentForCreationDTO dto)
         {
-            string fileName = Guid.NewGuid().ToString("N");
+            string fileName = Guid.NewGuid().ToString("N") + "png";
             string filePath = Path.Combine(EnvironmentHelper.AttachmentPath, fileName);
 
             if (!Directory.Exists(EnvironmentHelper.AttachmentPath))

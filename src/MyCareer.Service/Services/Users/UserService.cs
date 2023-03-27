@@ -53,6 +53,8 @@ namespace MyCareer.Service.Services.Users
 
             var createdUser = await userRepository.CreateAsync(mapper.Map<User>(userForCreationDTO));
 
+            createdUser.Password = createdUser.Password.Encrypt();
+
             await userRepository.SaveChangesAsync();
 
             return mapper.Map<UserForViewDTO>(createdUser);

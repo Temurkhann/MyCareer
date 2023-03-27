@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.Users;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Users
 {
@@ -20,7 +21,7 @@ namespace MyCareer.Api.Controllers.Users
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForLoginDTO dto)
+        public async ValueTask<IActionResult> Login(UserForLoginDTO dto)
         {
             var token = await authService.GenerateToken(dto.Email, dto.Password);
             return Ok(new

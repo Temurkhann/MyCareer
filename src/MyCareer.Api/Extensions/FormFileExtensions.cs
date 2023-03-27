@@ -1,4 +1,6 @@
-﻿using MyCareer.Service.DTOs.Attachments;
+﻿using Microsoft.AspNetCore.Http;
+using MyCareer.Service.DTOs.Attachments;
+using System.IO;
 
 namespace MyCareer.Api.Extensions
 {

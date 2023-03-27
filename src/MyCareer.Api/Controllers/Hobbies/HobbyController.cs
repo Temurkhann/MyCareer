@@ -2,6 +2,7 @@
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Hobbies;
 using MyCareer.Service.Interfaces.Hobbies;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Hobbies
 {

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.Users;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Users
 {

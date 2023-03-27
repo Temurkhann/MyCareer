@@ -4,6 +4,7 @@ using MyCareer.Service.DTOs.Freelancers;
 using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.Interfaces.Freelancers;
 using MyCareer.Service.Services.Resumes;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Freelancers
 {

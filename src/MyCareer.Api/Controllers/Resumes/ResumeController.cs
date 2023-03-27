@@ -4,6 +4,7 @@ using MyCareer.Service.DTOs.Resumes;
 using MyCareer.Service.DTOs.Talents;
 using MyCareer.Service.Interfaces.Resumes;
 using MyCareer.Service.Interfaces.Talents;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Resumes
 {

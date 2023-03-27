@@ -3,6 +3,7 @@ using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Users;
 using MyCareer.Service.Interfaces.IUsers;
 using MyCareer.Service.Services.Users;
+using System.Threading.Tasks;
 
 namespace MyCareer.Api.Controllers.Users
 {

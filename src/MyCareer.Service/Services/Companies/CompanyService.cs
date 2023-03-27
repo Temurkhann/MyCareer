@@ -9,6 +9,7 @@ using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Companies;
 using MyCareer.Service.DTOs.Freelancers;
 using MyCareer.Service.Exceptions;
+using MyCareer.Service.Extensions;
 using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Companies;
 using System;
@@ -35,8 +36,9 @@ namespace MyCareer.Service.Services.Companies
 
         public async ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO)
         {
-            var createdCompany = await companyRepository.CreateAsync(mapper.Map<Company>(companyForCreationDTO));
+            companyForCreationDTO.User.Password = companyForCreationDTO.User.Password.Encrypt();
 
+            var createdCompany = await companyRepository.CreateAsync(mapper.Map<Company>(companyForCreationDTO));
             await companyRepository.SaveChangesAsync();
             return createdCompany;
         }
@@ -53,7 +55,7 @@ namespace MyCareer.Service.Services.Companies
 
         public async ValueTask<IEnumerable<Company>> GetAll(PaginationParams @params, Expression<Func<Company, bool>> expression = null)
         {
-            var companies = companyRepository.GetAll(expression: expression, isTracking: false, includes: new string[] { "User" });
+            var companies = companyRepository.GetAll(expression: expression, isTracking: false, includes: new string[] { "User", "Image", "CompanyInformation" });
 
             return await companies.ToPagedList(@params).ToListAsync();
         }
@@ -78,7 +80,7 @@ namespace MyCareer.Service.Services.Companies
 
         public async ValueTask<Company> GetAsync(Expression<Func<Company, bool>> expression)
         {
-            var company = await companyRepository.GetAsync(expression, false, new string[] { "CompanyInformation", "User", "CompanyInformation.Contact" });
+            var company = await companyRepository.GetAsync(expression, false, new string[] { "CompanyInformation", "User", "CompanyInformation.Contact", "Image" });
 
             if (company is null)
                 throw new MyCareerException(404, "Company not found");
