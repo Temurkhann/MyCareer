@@ -71,7 +71,7 @@ namespace MyCareer.Service.Services.Experiences
             return userHobby;
         }
 
-        public async ValueTask<Experience> Update(int id, ExperienceForCreationDTO experienceForCreation)
+        public async ValueTask<Experience> UpdateAsync(int id, ExperienceForCreationDTO experienceForCreation)
         {
             var existExperince = await experienceRepository.GetAsync(f => f.Id == id);
 

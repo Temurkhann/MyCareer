@@ -110,7 +110,7 @@ namespace MyCareer.Service.Services.Freelancers
             return freelancer;
         }
 
-        public async ValueTask<Freelancer> Update(int id, FreelancerForCreationDTO freelancerForCreationDTO)
+        public async ValueTask<Freelancer> UpdateAsync(int id, FreelancerForCreationDTO freelancerForCreationDTO)
         {
             var existFreelancer = await freelancerRepository.GetAsync(f => f.Id == id);
 

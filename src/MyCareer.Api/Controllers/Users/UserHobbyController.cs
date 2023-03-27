@@ -36,7 +36,7 @@ namespace MyCareer.Api.Controllers.Users
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, UserHobbyForCreationDTO
             userHobbyForCreationDTO)
-            => Ok(await userHobbyService.Update(id, userHobbyForCreationDTO));
+            => Ok(await userHobbyService.UpdateAsync(id, userHobbyForCreationDTO));
 
         /// <summary>
         /// GetAll userHobby

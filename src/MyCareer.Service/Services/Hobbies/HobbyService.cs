@@ -57,7 +57,7 @@ namespace MyCareer.Service.Services.Hobbies
             return skill;
         }
 
-        public async ValueTask<Hobby> Update(int id, HobbyForCreationDTO hobbyForCreation)
+        public async ValueTask<Hobby> UpdateAsync(int id, HobbyForCreationDTO hobbyForCreation)
         {
             var existSkill = await hobbyRepository.GetAsync(f => f.Id == id);
 

@@ -36,7 +36,7 @@ namespace MyCareer.Api.Controllers.Resumes
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, ResumeForCreationDTO resumeForCreationDTO)
-            => Ok(await resumeService.Update(id, resumeForCreationDTO));
+            => Ok(await resumeService.UpdateAsync(id, resumeForCreationDTO));
 
         /// <summary>
         /// GetAll resumes

@@ -80,7 +80,7 @@ namespace MyCareer.Service.Services.Users
             return userLanguage;
         }
 
-        public async ValueTask<UserLanguage> Update(int id, UserLanguageForCreationDTO userLanguageForCreation)
+        public async ValueTask<UserLanguage> UpdateAsync(int id, UserLanguageForCreationDTO userLanguageForCreation)
         {
             var existUserLanguage = await userLanguageRepository.GetAsync(f => f.Id == id);
 

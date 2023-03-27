@@ -36,7 +36,7 @@ namespace MyCareer.Api.Controllers.Contacts
         /// <returns></returns>
         [HttpPut("{id}")]
         public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, ContactForCreationDTO contactForCreationDTO)
-            => Ok(await contactService.Update(id, contactForCreationDTO));
+            => Ok(await contactService.UpdateAsync(id, contactForCreationDTO));
 
         /// <summary>
         /// GetAll contacts
