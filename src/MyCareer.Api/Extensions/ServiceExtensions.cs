@@ -20,6 +20,7 @@ using MyCareer.Domain.Entities.Resumes;
 using MyCareer.Domain.Entities.Skills;
 using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
+using MyCareer.Service.Interfaces.Addresses;
 using MyCareer.Service.Interfaces.Attachments;
 using MyCareer.Service.Interfaces.Companies;
 using MyCareer.Service.Interfaces.Contacts;
@@ -36,6 +37,7 @@ using MyCareer.Service.Interfaces.Resumes;
 using MyCareer.Service.Interfaces.Skills;
 using MyCareer.Service.Interfaces.Talents;
 using MyCareer.Service.Interfaces.Users;
+using MyCareer.Service.Services.Addresses;
 using MyCareer.Service.Services.Attachments;
 using MyCareer.Service.Services.Companies;
 using MyCareer.Service.Services.Contacts;
@@ -53,7 +55,7 @@ using MyCareer.Service.Services.Talents;
 using MyCareer.Service.Services.Users;
 using System.Linq;
 using System.Text;
-
+using System.Threading;
 
 namespace MyCareer.Api.Extensions
 {
@@ -85,6 +87,7 @@ namespace MyCareer.Api.Extensions
             services.AddScoped<IGenericRepository<Contract>, GenericRepository<Contract>>();
             services.AddScoped<IGenericRepository<ContractSkill>, GenericRepository<ContractSkill>>();
             services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contact>>();
+            services.AddScoped<IGenericRepository<PerformerDetails>, GenericRepository<PerformerDetails>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
@@ -108,6 +111,10 @@ namespace MyCareer.Api.Extensions
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IContractSkillService, ContractSkillService>();
             services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IPerformerDetailService, PerformerDetailService>();
+            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IRegionService, RegionService>();
+            services.AddScoped<ICountryService, CountryService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
