@@ -13,7 +13,5 @@ namespace MyCareer.Service.Interfaces.Chats
         ValueTask<IEnumerable<Chat>> GetAll(PaginationParams @params, Expression<Func<Chat, bool>> expression = null);
         ValueTask<Chat> GetAsync(Expression<Func<Chat, bool>> expression);
         ValueTask<Chat> CreateAsync(ChatForCreationDTO chatForCreationDTO);
-        ValueTask<bool> DeleteAsync(int id);
-        ValueTask<Chat> UpdateAsync(int id, ChatForCreationDTO chatForCreationDTO);
     }
 }
