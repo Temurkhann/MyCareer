@@ -27,7 +27,7 @@ namespace MyCareer.Api.Controllers.Companies
         /// <param name="companyForCreationDTO"></param>
         /// <returns></returns>
         [HttpPost]
-        public async ValueTask<IActionResult> CreateAsync(CompanyForCreationDTO companyForCreationDTO)
+        public async ValueTask<IActionResult> CreateAsync([FromForm] CompanyForCreationDTO companyForCreationDTO)
             => Ok(await companyService.CreateAsync(companyForCreationDTO));
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace MyCareer.Api.Controllers.Companies
         /// <param name="companyForCreationDTO"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id, CompanyForCreationDTO companyForCreationDTO)
+        public async ValueTask<IActionResult> UpdateAsync([FromRoute] int id,[FromForm] CompanyForCreationDTO companyForCreationDTO)
             => Ok(await companyService.UpdateAsync(id, companyForCreationDTO));
 
         /// <summary>

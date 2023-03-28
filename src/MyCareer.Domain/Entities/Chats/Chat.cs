@@ -11,7 +11,6 @@ namespace MyCareer.Domain.Entities.Chats
         public Freelancer Freelancer { get; set; }
         public int CompanyId { get; set; }
         public Company Company { get; set; }
-        public virtual ICollection<CompanyMessage> CompanyMessages { get; set; } 
         public virtual ICollection<Message> FreelancerMessages { get; set; }
     }
 }
