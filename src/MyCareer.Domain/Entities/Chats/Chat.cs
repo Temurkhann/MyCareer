@@ -1,6 +1,7 @@
 ﻿using MyCareer.Domain.Commons;
 using MyCareer.Domain.Entities.Companies;
 using MyCareer.Domain.Entities.Users;
+using System.Collections.Generic;
 
 namespace MyCareer.Domain.Entities.Chats
 {
@@ -10,7 +11,7 @@ namespace MyCareer.Domain.Entities.Chats
         public Freelancer Freelancer { get; set; }
         public int CompanyId { get; set; }
         public Company Company { get; set; }
-        public int MessageId { get; set; }
-        public Message Message { get; set; }
+        public virtual ICollection<CompanyMessage> CompanyMessages { get; set; } 
+        public virtual ICollection<Message> FreelancerMessages { get; set; }
     }
 }

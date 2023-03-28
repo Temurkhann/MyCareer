@@ -1,4 +1,5 @@
 ﻿using MyCareer.Domain.Commons;
+using MyCareer.Domain.Entities.Chats;
 using System;
 using System.Linq;
 using System.Linq.Expressions;

@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace MyCareer.Service.Services.Contacts
 {
     public class ContactService : IContactService
-    {
+    {   
         private readonly IGenericRepository<Contact> contactRepository;
         private readonly IMapper mapper;
 
