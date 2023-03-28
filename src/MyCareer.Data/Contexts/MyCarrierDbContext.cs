@@ -49,7 +49,7 @@ public class MyCareerDbContext : DbContext
     public DbSet<Chat> Chats { get; set; }
     public DbSet<PerformerDetails> PerformerDetails { get; set; }
     public DbSet<Contract> Contracts { get; set; }
-    public DbSet<CompanyMessage> Messages { get; set; }
+    public DbSet<Message> Messages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

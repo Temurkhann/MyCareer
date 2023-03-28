@@ -91,7 +91,7 @@ namespace MyCareer.Service.Mappers
 
             //chat
             CreateMap<Chat, ChatForCreationDTO>().ReverseMap();
-            CreateMap<CompanyMessage, MessageForCreationDTO>().ReverseMap();
+            CreateMap<Message, MessageForCreationDTO>().ReverseMap();
 
             // attachment
             CreateMap<Attachment, AttachmentForCreationDTO>().ReverseMap();

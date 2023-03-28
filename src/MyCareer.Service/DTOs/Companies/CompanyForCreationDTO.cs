@@ -1,4 +1,5 @@
-﻿using MyCareer.Service.DTOs.Attachments;
+﻿using Microsoft.AspNetCore.Http;
+using MyCareer.Service.DTOs.Attachments;
 using MyCareer.Service.DTOs.Users;
 using System.ComponentModel.DataAnnotations;
 
@@ -20,5 +21,7 @@ namespace MyCareer.Service.DTOs.Companies
 
         [Required]
         public CompanyInformationForCreationDTO CompanyInformation { get; set; }
+
+        public IFormFile FormFile { get; set; }
     }
 }

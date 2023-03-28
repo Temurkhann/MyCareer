@@ -38,12 +38,16 @@ namespace MyCareer.Service.Services.Companies
 
         public async ValueTask<Company> CreateAsync(CompanyForCreationDTO companyForCreationDTO)
         {
+            var createAttachment = await attachmentService.UploadAsync(companyForCreationDTO.FormFile.ToAttachmentOrDefault());
+            
             var existUser = await userRepository.GetAsync(u => u.Id == companyForCreationDTO.UserId);
 
             if (existUser == null)
                 throw new MyCareerException(404,"User not found");
 
             var createdCompany = await companyRepository.CreateAsync(mapper.Map<Company>(companyForCreationDTO));
+
+            createdCompany.ImageId = createAttachment.Id;
             await companyRepository.SaveChangesAsync();
             return createdCompany;
         }
@@ -99,6 +103,9 @@ namespace MyCareer.Service.Services.Companies
 
             if (existFreelancer is null)
                 throw new MyCareerException(404, "Company not found");
+
+            if (companyForCreationDTO.FormFile != null)
+                await attachmentService.UpdateAsync((int)existFreelancer.ImageId, companyForCreationDTO.FormFile.ToAttachmentOrDefault().Stream);
 
             existFreelancer.UpdatedAt = DateTime.UtcNow;
             existFreelancer = companyRepository.Update(mapper.Map(companyForCreationDTO, existFreelancer));
