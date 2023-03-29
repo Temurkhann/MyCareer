@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using MyCareer.Api.Hubs;
 using MyCareer.Domain.Configurations;
 using MyCareer.Service.DTOs.Chats;
 using MyCareer.Service.Interfaces.Chats;
@@ -21,9 +22,10 @@ namespace MyCareer.Api.Controllers.Chats
         }
 
         [HttpPost]
-        public async ValueTask<IActionResult> CreateAsync(string user, string message)
+        public async ValueTask<IActionResult> CreateAsync([FromForm] ChatForCreationDTO dto)
         {
-            await hubContext.Clients.All.SendAsync("RecieveMessage", user, message);
+            var chat =  await chatService.CreateAsync(dto);
+            await hubContext.Clients.All.SendAsync("RecieveMessage", chat.Id.ToString());
             return Ok();
         }
 
