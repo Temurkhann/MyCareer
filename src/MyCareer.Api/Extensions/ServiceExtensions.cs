@@ -7,6 +7,7 @@ using MyCareer.Data.IRepositories;
 using MyCareer.Data.Repositories;
 using MyCareer.Domain.Entities.Addresses;
 using MyCareer.Domain.Entities.Attachments;
+using MyCareer.Domain.Entities.Chats;
 using MyCareer.Domain.Entities.Companies;
 using MyCareer.Domain.Entities.Contacts;
 using MyCareer.Domain.Entities.Contracts;
@@ -22,6 +23,7 @@ using MyCareer.Domain.Entities.Talents;
 using MyCareer.Domain.Entities.Users;
 using MyCareer.Service.Interfaces.Addresses;
 using MyCareer.Service.Interfaces.Attachments;
+using MyCareer.Service.Interfaces.Chats;
 using MyCareer.Service.Interfaces.Companies;
 using MyCareer.Service.Interfaces.Contacts;
 using MyCareer.Service.Interfaces.Contracts;
@@ -33,12 +35,14 @@ using MyCareer.Service.Interfaces.IUsers;
 using MyCareer.Service.Interfaces.Jobs;
 using MyCareer.Service.Interfaces.Languages;
 using MyCareer.Service.Interfaces.Likes;
+using MyCareer.Service.Interfaces.Messages;
 using MyCareer.Service.Interfaces.Resumes;
 using MyCareer.Service.Interfaces.Skills;
 using MyCareer.Service.Interfaces.Talents;
 using MyCareer.Service.Interfaces.Users;
 using MyCareer.Service.Services.Addresses;
 using MyCareer.Service.Services.Attachments;
+using MyCareer.Service.Services.Chats;
 using MyCareer.Service.Services.Companies;
 using MyCareer.Service.Services.Contacts;
 using MyCareer.Service.Services.Contracts;
@@ -88,6 +92,8 @@ namespace MyCareer.Api.Extensions
             services.AddScoped<IGenericRepository<ContractSkill>, GenericRepository<ContractSkill>>();
             services.AddScoped<IGenericRepository<Contact>, GenericRepository<Contact>>();
             services.AddScoped<IGenericRepository<PerformerDetails>, GenericRepository<PerformerDetails>>();
+            services.AddScoped<IGenericRepository<Chat>, GenericRepository<Chat>>();
+            services.AddScoped<IGenericRepository<Message>, GenericRepository<Message>>();
 
             // services
             services.AddScoped<IAuthService, AuthService>();
@@ -115,6 +121,8 @@ namespace MyCareer.Api.Extensions
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IRegionService, RegionService>();
             services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<IChatService, ChatService>();
+            services.AddScoped<IMessageService, MessageService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
