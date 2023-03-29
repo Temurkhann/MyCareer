@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyCareer.Api.Extensions;
 using MyCareer.Api.Helpers;
+using MyCareer.Api.Hubs;
 using MyCareer.Api.Middlewares;
 using MyCareer.Data.Contexts;
 using MyCareer.Service.Helpers;
@@ -16,6 +17,7 @@ using MyCareer.Service.Mappers;
 using Newtonsoft.Json;
 using Serilog;
 using ZaminEducation.Api;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +29,6 @@ builder.Services.AddControllers(options =>
     options.Conventions.Add(new RouteTokenTransformerConvention(
                                  new ConfigureApiUrlName()));
 });
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -37,6 +38,8 @@ builder.Services.AddDbContext<MyCareerDbContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddSignalR();
 
 // Serilog
 var logger = new LoggerConfiguration()
@@ -69,15 +72,24 @@ EnvironmentHelper.WebRootPath = app.Services.GetRequiredService<IWebHostEnvironm
 if (app.Services.GetService<IHttpContextAccessor>() != null)
     HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
+
+
 app.UseMiddleware<MyCareerExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/api/chat");
+});
 
 app.MapControllers();
 
