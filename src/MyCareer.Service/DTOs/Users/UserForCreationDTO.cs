@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyCareer.Service.DTOs.Users
 {
     public class UserForCreationDTO
     {
-        [Required]
+        [Required, EmailAddress]
         public string Email { get; set; }
 
         [Required]

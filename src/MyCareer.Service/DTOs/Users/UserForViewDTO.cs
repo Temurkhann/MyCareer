@@ -7,7 +7,7 @@ namespace MyCareer.Service.DTOs.Users
         [Required]
         public int Id { get; set; }
 
-        [Required]
+        [Required, EmailAddress]
         public string Email { get; set; }
 
         [Required]
