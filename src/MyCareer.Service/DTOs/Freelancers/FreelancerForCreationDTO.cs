@@ -16,10 +16,10 @@ namespace MyCareer.Service.DTOs.Freelancers
         [Required]
         public string LastName { get; set; }
 
-        [Required]
+        [Required, Phone]
         public string PhoneNumber { get; set; }
 
-        [Required]
+        [Required, EmailAddress]
         public string Email { get; set; }
 
         [Required]

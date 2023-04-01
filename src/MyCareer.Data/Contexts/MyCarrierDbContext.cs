@@ -77,5 +77,5 @@ public class MyCareerDbContext : DbContext
             .OnDelete(DeleteBehavior.Cascade);
 
 
-    }
+    }   
 }

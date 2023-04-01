@@ -4,7 +4,7 @@ namespace MyCareer.Service.DTOs.Users
 {
     public class UserForUpdateDTO
     {
-        [Required]
+        [Required, EmailAddress]
         public string Email { get; set; }
     }
 }
